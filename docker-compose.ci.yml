@@ -1,0 +1,5 @@
+version: '3'
+services:
+  main:
+    image: opuscapita/peppol-validator:dev
+    command: 'gradlew bootRun'
