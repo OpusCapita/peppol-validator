@@ -1,28 +1,29 @@
 package com.opuscapita.peppol.validator.controller.document;
 
-import com.opuscapita.peppol.commons.validation.ValidationError;
+import com.opuscapita.peppol.commons.container.state.log.DocumentValidationError;
 
 public class DocumentSplitterResult {
 
-    private final byte[] sbdh;
-    private final byte[] documentBody;
-    private final ValidationError attachmentError;
+    private final byte[] body;
+    private final byte[] header;
+    private final DocumentValidationError attachmentError;
 
-    DocumentSplitterResult(byte[] sbdh, byte[] documentBody, ValidationError attachmentError) {
-        this.sbdh = sbdh;
-        this.documentBody = documentBody;
+    DocumentSplitterResult(byte[] body, byte[] header, DocumentValidationError attachmentError) {
+        this.body = body;
+        this.header = header;
         this.attachmentError = attachmentError;
     }
 
-    public byte[] getSbdh() {
-        return sbdh;
+    public byte[] getBody() {
+        return body;
     }
 
-    public byte[] getDocumentBody() {
-        return documentBody;
+    public byte[] getHeader() {
+        return header;
     }
 
-    public ValidationError getAttachmentError() {
+    public DocumentValidationError getAttachmentError() {
         return attachmentError;
     }
+
 }

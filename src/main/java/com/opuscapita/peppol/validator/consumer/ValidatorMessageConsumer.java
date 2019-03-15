@@ -1,17 +1,19 @@
 package com.opuscapita.peppol.validator.consumer;
 
 import com.opuscapita.peppol.commons.container.ContainerMessage;
-import com.opuscapita.peppol.commons.container.state.Endpoint;
-import com.opuscapita.peppol.commons.container.state.ProcessType;
-import com.opuscapita.peppol.commons.container.state.Route;
+import com.opuscapita.peppol.commons.container.state.ProcessStep;
 import com.opuscapita.peppol.commons.eventing.EventReporter;
 import com.opuscapita.peppol.commons.eventing.TicketReporter;
 import com.opuscapita.peppol.commons.queue.MessageQueue;
 import com.opuscapita.peppol.commons.queue.consume.ContainerMessageConsumer;
 import com.opuscapita.peppol.commons.storage.Storage;
-import com.opuscapita.peppol.validator.controller.ContainerMetadataValidator;
 import com.opuscapita.peppol.validator.controller.document.DocumentSplitter;
 import com.opuscapita.peppol.validator.controller.document.DocumentSplitterResult;
+import com.opuscapita.peppol.validator.controller.validators.HeaderValidator;
+import com.opuscapita.peppol.validator.controller.validators.MetadataValidator;
+import com.opuscapita.peppol.validator.controller.validators.PayloadValidator;
+import com.opuscapita.peppol.validator.rule.ValidationRule;
+import com.opuscapita.peppol.validator.rule.ValidationRuleConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -27,69 +29,91 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
 
     private static final Logger logger = LoggerFactory.getLogger(ValidatorMessageConsumer.class);
 
-    @Value("${spring.application.name}")
-    private String componentName;
+    @Value("${peppol.email-sender.queue.in.name}")
+    private String emailSenderQueue;
 
     private Storage storage;
     private MessageQueue messageQueue;
     private EventReporter eventReporter;
     private TicketReporter ticketReporter;
+    private ValidationRuleConfig ruleConfig;
+    private HeaderValidator headerValidator;
+    private PayloadValidator payloadValidator;
     private DocumentSplitter documentSplitter;
-    private ContainerMetadataValidator metadataValidator;
+    private MetadataValidator metadataValidator;
 
     @Autowired
-    public ValidatorMessageConsumer(Storage storage, MessageQueue messageQueue, EventReporter eventReporter, TicketReporter ticketReporter,
-                                    DocumentSplitter documentSplitter, ContainerMetadataValidator metadataValidator) {
+    public ValidatorMessageConsumer(Storage storage, MessageQueue messageQueue,
+                                    EventReporter eventReporter, TicketReporter ticketReporter,
+                                    HeaderValidator headerValidator, PayloadValidator payloadValidator,
+                                    ValidationRuleConfig ruleConfig, DocumentSplitter documentSplitter, MetadataValidator metadataValidator) {
         this.storage = storage;
+        this.ruleConfig = ruleConfig;
         this.messageQueue = messageQueue;
         this.eventReporter = eventReporter;
         this.ticketReporter = ticketReporter;
+        this.headerValidator = headerValidator;
+        this.payloadValidator = payloadValidator;
         this.documentSplitter = documentSplitter;
         this.metadataValidator = metadataValidator;
     }
 
     @Override
     public void consume(@NotNull ContainerMessage cm) throws Exception {
-        cm.setStatus(getCurrentEndpoint(cm), "received");
-        logger.info("Validator received the message: " + cm.toLog());
+        cm.setStep(ProcessStep.VALIDATION);
+        cm.getHistory().addInfo("Received and started validating");
+        logger.info("Validator received the message: " + cm.toKibana());
 
         if (StringUtils.isBlank(cm.getFileName())) {
-            throw new IllegalArgumentException("File name is empty in received message: " + cm.toLog());
+            throw new IllegalArgumentException("File name is empty in received message: " + cm.toKibana());
         }
 
         logger.info("Checking metadata of the message: " + cm.getFileName());
         metadataValidator.validate(cm);
-        if (StringUtils.isNotBlank(cm.getProcessingException())) {
-            cm.setCurrentStatus("validation error: invalid metadata");
-            logger.info("Validation failed for the message: " + cm.toLog() + " reason: " + cm.getProcessingException());
+        if (cm.getHistory().hasError()) {
+            logger.info("Validation failed for the message: " + cm.toKibana() + " reason: " + cm.getHistory().getLastLog().getMessage());
+            cm.getHistory().addInfo("Validation failed: invalid metadata");
+
             eventReporter.reportStatus(cm);
             ticketReporter.reportWithContainerMessage(cm, null, "Validation failed for the message: " + cm.getFileName());
             return;
         }
 
+        logger.info("Getting validation rule of the message: " + cm.getFileName());
+        ValidationRule rule = ruleConfig.getRule(cm);
+        if (rule == null) {
+            logger.info("Validation failed for the message: " + cm.toKibana() + " reason: " + cm.getHistory().getLastLog().getMessage());
+            cm.getHistory().addInfo("Validation failed: no rule found");
+
+            eventReporter.reportStatus(cm);
+            messageQueue.convertAndSend(emailSenderQueue, cm);
+            ticketReporter.reportWithContainerMessage(cm, null, "Validation failed for the message: " + cm.getFileName());
+            return;
+        }
+
         InputStream content = storage.get(cm.getFileName());
+        DocumentSplitterResult parts = documentSplitter.split(content, rule);
 
+        cm = headerValidator.validate(parts.getHeader(), cm);
+        cm = payloadValidator.validate(parts.getBody(), cm, rule);
 
-//        logger.info("Loading route info for the message: " + cm.getFileName());
-//        Route route = messageRouter.loadRoute(cm);
-//        cm.setCurrentStatus("route info set");
-//        cm.setRoute(route);
-//
-//        if (StringUtils.isNotBlank(cm.getProcessingException())) {
-//            cm.setCurrentStatus("processing error: invalid route");
-//            logger.info("Processing failed for the message: " + cm.toLog() + " reason: " + cm.getProcessingException());
-//            eventReporter.reportStatus(cm);
-//            ticketReporter.reportWithContainerMessage(cm, null, "Processing failed for the message: " + cm.getFileName());
-//            return;
-//        }
-//
-//        String outputQueue = cm.popRoute();
-//        messageQueue.convertAndSend(outputQueue, cm);
-//        logger.info("The message: " + cm.toLog() + " successfully validated and delivered to " + outputQueue + " queue");
-    }
+        if (parts.getAttachmentError() != null) {
+            cm.getHistory().addValidationError(parts.getAttachmentError());
+        }
 
-    private Endpoint getCurrentEndpoint(@NotNull ContainerMessage cm) {
-        return new Endpoint(componentName, (cm.isInbound() ? ProcessType.IN_VALIDATION : ProcessType.OUT_VALIDATION));
+        if (cm.getHistory().hasError()) {
+            cm.getHistory().addInfo("Validation failed: invalid file");
+
+            eventReporter.reportStatus(cm);
+            messageQueue.convertAndSend(emailSenderQueue, cm);
+            logger.info("Validation failed for " + cm.toKibana() + ", message sent to " + emailSenderQueue + " queue");
+            return;
+        }
+
+        String outputQueue = cm.popRoute();
+        messageQueue.convertAndSend(outputQueue, cm);
+        cm.getHistory().addInfo("Validation completed successfully");
+        logger.info("The message: " + cm.toKibana() + " successfully validated and delivered to " + outputQueue + " queue");
     }
 
 }

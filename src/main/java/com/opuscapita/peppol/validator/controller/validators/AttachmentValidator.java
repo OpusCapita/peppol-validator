@@ -1,6 +1,6 @@
-package com.opuscapita.peppol.validator.controller.document;
+package com.opuscapita.peppol.validator.controller.validators;
 
-import com.opuscapita.peppol.commons.validation.ValidationError;
+import com.opuscapita.peppol.commons.container.state.log.DocumentValidationError;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ public class AttachmentValidator {
     /**
      * Checks that attachment is a real BASE64 string.
      */
-    public ValidationError validate(@NotNull String characters) {
+    public DocumentValidationError validate(@NotNull String characters) {
         if (isValidBase64(characters)) {
             return null;
         }
@@ -22,7 +22,7 @@ public class AttachmentValidator {
         if (characters.length() == 0) {
             characters = "[empty]";
         }
-        return new ValidationError("Validation error")
+        return new DocumentValidationError("Validation error")
                 .withText("[ATTACHMENT] - The attachment is not base64 encoded string: " + characters)
                 .withTest("Attachment contains only base64 allowed symbols and attachment length % 4 == 0")
                 .withFlag("fatal")
@@ -30,7 +30,7 @@ public class AttachmentValidator {
     }
 
     // allow all symbols in A-Za-z0-9+/ in groups of 4 padded with 1 or two '=' symbols
-    boolean isValidBase64(@NotNull String characters) {
+    private boolean isValidBase64(@NotNull String characters) {
         int length = 0;
         boolean padding = false;
         int paddingLength = 0;

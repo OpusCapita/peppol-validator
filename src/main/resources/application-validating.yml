@@ -1,0 +1,884 @@
+peppol:
+  validator:
+    rules:
+      map:
+        #   ####### CENBII #######   #
+        - id: 35
+          description: "CEN BII v1 Invoice Profile 4"
+          archetype: "CENBII"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biicoretrdm010:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.0.xsd"
+
+        - id: 36
+          description: "CEN BII v1 Invoice Profile 5"
+          archetype: "CENBII"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biicoretrdm010:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii05:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.0.xsd"
+
+        - id: 48
+          description: "CEN BII v2 Invoice Profile 4"
+          archetype: "CENBII"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.1.xsd"
+
+        - id: 49
+          description: "CEN BII v2 Invoice Profile 5"
+          archetype: "CENBII"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii05:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.1.xsd"
+
+        - id: 50
+          description: "CEN BII v2 Invoice Profile 6"
+          archetype: "CENBII"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii06:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.1.xsd"
+
+        - id: 40
+          description: "CEN BII v1 Order Profile 27"
+          archetype: "CENBII"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biitrns001:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii27:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Order-2.1.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+
+        - id: 41
+          description: "CEN BII v1 Order Profile 28"
+          archetype: "CENBII"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biitrns001:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii28:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Order-2.1.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+
+        - id: 38
+          description: "CEN BII v1 Order Profile 3"
+          archetype: "CENBII"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biitrns001:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii03:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Order-2.1.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+
+        - id: 42
+          description: "CEN BII v1 Order Profile 32"
+          archetype: "CENBII"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biitrns001:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii32:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Order-2.1.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+
+        - id: 39
+          description: "CEN BII v1 Order Profile 6"
+          archetype: "CENBII"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biitrns001:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii06:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Order-2.1.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+
+        - id: 37
+          description: "CEN BII v1 CreditNote Profile 5"
+          archetype: "CENBII"
+          localName: "CreditNote"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:www.cenbii.eu:transaction:biicoretrdm014:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii05:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "maindoc/UBL-CreditNote-2.0.xsd"
+            - "xsl/BIIRULES-UBL-T14.xsl"
+
+        - id: 51
+          description: "CEN BII v2 CreditNote Profile 5"
+          archetype: "CENBII"
+          localName: "CreditNote"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:www.cenbii.eu:transaction:biitrns014:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii05:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-CreditNote-2.1.xsd"
+            - "xsl/BIIRULES-UBL-T14.xsl"
+
+        - id: 52
+          description: "CEN BII v2 CreditNote Profile 6"
+          archetype: "CENBII"
+          localName: "CreditNote"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:www.cenbii.eu:transaction:biitrns014:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii06:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-CreditNote-2.1.xsd"
+            - "xsl/BIIRULES-UBL-T14.xsl"
+
+        - id: 53
+          description: "CEN BII v2 DespatchAdvice Profile 30"
+          archetype: "CENBII"
+          localName: "DespatchAdvice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:www.cenbii.eu:transaction:biitrns016:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii30:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-DespatchAdvice-2.1.xsd"
+            - "xsl/BIIRULES-UBL-T16.xsl"
+
+        #   ####### PEPPOL_BIS #######   #
+        - id: 115
+          description: "Peppol BIS v1 Invoice Profile 5a"
+          archetype: "PEPPOL_BIS"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biicoretrdm015:ver1.0:#urn:www.peppol.eu:bis:peppol5a:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii05:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "xsl/OPENPEPPOL-UBL-T10.xsl"
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.0.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T10.xsl"
+
+        - id: 5
+          description: "Peppol BIS v1 Invoice Profile 4a"
+          archetype: "PEPPOL_BIS"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biicoretrdm010:ver1.0:#urn:www.peppol.eu:bis:peppol4a:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "xsl/OPENPEPPOL-UBL-T10.xsl"
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.0.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T10.xsl"
+
+        - id: 8
+          description: "Peppol BIS v1 Invoice Profile 6a"
+          archetype: "PEPPOL_BIS"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biicoretrdm010:ver1.0:#urn:www.peppol.eu:bis:peppol6a:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii06:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "xsl/OPENPEPPOL-UBL-T10.xsl"
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.0.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T10.xsl"
+
+        - id: 10
+          description: "Peppol BIS v1 Invoice Profile 6a"
+          archetype: "PEPPOL_BIS"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biicoretrdm015:ver1.0:#urn:www.peppol.eu:bis:peppol6a:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "xsl/OPENPEPPOL-UBL-T10.xsl"
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.0.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T10.xsl"
+
+        - id: 24
+          description: "Peppol BIS v2 Invoice Profile 4a"
+          archetype: "PEPPOL_BIS"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/OPENPEPPOL-UBL-T10.xsl"
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T10.xsl"
+
+        - id: 84
+          description: "Peppol BIS v2 Invoice Profile 4a"
+          archetype: "PEPPOL_BIS"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/OPENPEPPOL-UBL-T10.xsl"
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T10.xsl"
+
+        - id: 116
+          description: "Peppol BIS v2 Invoice Profile 5a"
+          archetype: "PEPPOL_BIS"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol5a:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii05:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/OPENPEPPOL-UBL-T10.xsl"
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T10.xsl"
+
+        - id: 158
+          description: "Peppol BIS v3 Invoice"
+          archetype: "PEPPOL_BIS"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1"
+          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Invoice-2.1.xsd"
+            - "xsl/CEN-EN16931-CII.xsl"
+            - "xsl/CEN-EN16931-UBL.xsl"
+            - "xsl/PEPPOL-EN16931-CII.xsl"
+            - "xsl/PEPPOL-EN16931-UBL.xsl"
+
+        - id: 139
+          description: "Peppol BIS v2 Catalogue Profile 1a"
+          archetype: "PEPPOL_BIS"
+          localName: "Catalogue"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2::Catalogue##urn:www.cenbii.eu:transaction:biitrns019:ver2.0:extended:urn:www.peppol.eu:bis:peppol1a:ver4.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii01:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T19.xsl"
+            - "xsl/OPENPEPPOL-UBL-T19.xsl"
+            - "maindoc/UBL-Catalogue-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T19.xsl"
+
+        - id: 72
+          description: "Peppol BIS v2 CatalogueResponse"
+          archetype: "PEPPOL_BIS"
+          localName: "ApplicationResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:www.cenbii.eu:transaction:biitrns058:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii01:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T58.xsl"
+            - "xsl/OPENPEPPOL-UBL-T58.xsl"
+            - "maindoc/UBL-ApplicationResponse-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T58.xsl"
+
+        - id: 11003
+          description: "Peppol BIS v1 PunchOut Profile 18"
+          archetype: "PEPPOL_BIS"
+          localName: "Catalogue"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2::Catalogue##urn:www.cenbii.eu:transaction:biitrns077:ver2.0:extended:www.peppol.eu:bis:peppol18a:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii18:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "xsl/BIIRULES-UBL-T77.xsl"
+            - "xsl/OPENPEPPOL-UBL-T77.xsl"
+            - "maindoc/UBL-Catalogue-2.0.xsd"
+
+        - id: 4
+          description: "Peppol BIS v1 Order Profile 3a"
+          archetype: "PEPPOL_BIS"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biicoretrdm001:ver1.0:#urn:www.peppol.eu:bis:peppol3a:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii03:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "maindoc/UBL-Order-2.0.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+            - "xsl/OPENPEPPOL-UBL-T01.xsl"
+            - "xsl/OPENPEPPOLCORE-UBL-T01.xsl"
+
+        - id: 6
+          description: "Peppol BIS v1 Order Profile 6a"
+          archetype: "PEPPOL_BIS"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biicoretrdm001:ver1.0:#urn:www.peppol.eu:bis:peppol6a:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii06:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "maindoc/UBL-Order-2.0.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+            - "xsl/OPENPEPPOL-UBL-T01.xsl"
+            - "xsl/OPENPEPPOLCORE-UBL-T01.xsl"
+
+        - id: 83
+          description: "Peppol BIS v2 Order Profile 3a"
+          archetype: "PEPPOL_BIS"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii03:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Order-2.1.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+            - "xsl/OPENPEPPOL-UBL-T01.xsl"
+            - "xsl/OPENPEPPOLCORE-UBL-T01.xsl"
+
+        - id: 152
+          description: "Peppol BIS v2 Order Profile 28a"
+          archetype: "PEPPOL_BIS"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol28a:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii28:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Order-2.1.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+            - "xsl/OPENPEPPOL-UBL-T01.xsl"
+            - "xsl/OPENPEPPOLCORE-UBL-T01.xsl"
+
+        - id: 27
+          description: "Peppol BIS v2 OrderResponse Profile 28a"
+          archetype: "PEPPOL_BIS"
+          localName: "OrderResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2::OrderResponse##urn:www.cenbii.eu:transaction:biitrns076:ver2.0:extended:urn:www.peppol.eu:bis:peppol28a:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii28:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T76.xsl"
+            - "xsl/OPENPEPPOL-UBL-T76.xsl"
+            - "maindoc/UBL-OrderResponse-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T76.xsl"
+
+        - id: 157
+          description: "Peppol BIS v2 OrderAgreement Profile 42a"
+          archetype: "PEPPOL_BIS"
+          localName: "OrderResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2::OrderResponse##urn:www.cenbii.eu:transaction:biitrns110:ver1.0:extended:urn:www.peppol.eu:bis:peppol42a:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii42:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T110.xsl"
+            - "xsl/OPENPEPPOL-UBL-T110.xsl"
+            - "maindoc/UBL-OrderResponse-2.1.xsd"
+
+        - id: 9
+          description: "Peppol BIS v1 CreditNote Profile 6a"
+          archetype: "PEPPOL_BIS"
+          localName: "CreditNote"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:www.cenbii.eu:transaction:biicoretrdm014:ver1.0:#urn:www.peppol.eu:bis:peppol6a:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii06:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "xsl/OPENPEPPOL-UBL-T14.xsl"
+            - "xsl/BIIRULES-UBL-T14.xsl"
+            - "maindoc/UBL-CreditNote-2.0.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T14.xsl"
+
+        - id: 117
+          description: "Peppol BIS v2 CreditNote Profile 5a"
+          archetype: "PEPPOL_BIS"
+          localName: "CreditNote"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:www.cenbii.eu:transaction:biitrns014:ver2.0:extended:urn:www.peppol.eu:bis:peppol5a:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii05:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/OPENPEPPOL-UBL-T14.xsl"
+            - "xsl/BIIRULES-UBL-T14.xsl"
+            - "maindoc/UBL-CreditNote-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T14.xsl"
+
+        - id: 160
+          description: "Peppol BIS v3 CreditNote"
+          archetype: "PEPPOL_BIS"
+          localName: "CreditNote"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1"
+          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-CreditNote-2.1.xsd"
+            - "xsl/CEN-EN16931-CII.xsl"
+            - "xsl/CEN-EN16931-UBL.xsl"
+            - "xsl/PEPPOL-EN16931-CII.xsl"
+            - "xsl/PEPPOL-EN16931-UBL.xsl"
+
+        - id: 28
+          description: "Peppol BIS v1 DespatchAdvice Profile 30a"
+          archetype: "PEPPOL_BIS"
+          localName: "DespatchAdvice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:www.cenbii.eu:transaction:biitrns016:ver1.0:extended:urn:www.peppol.eu:bis:peppol30a:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii30:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T16.xsl"
+            - "xsl/OPENPEPPOL-UBL-T16.xsl"
+            - "maindoc/UBL-DespatchAdvice-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T16.xsl"
+
+        - id: 154
+          description: "Peppol BIS v2 DespatchAdvice Profile 30a"
+          archetype: "PEPPOL_BIS"
+          localName: "DespatchAdvice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:www.cenbii.eu:transaction:biitrns016:ver1.0:extended:urn:www.peppol.eu:bis:peppol30a:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii30:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T16.xsl"
+            - "xsl/OPENPEPPOL-UBL-T16.xsl"
+            - "maindoc/UBL-DespatchAdvice-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T16.xsl"
+
+        - id: 167
+          description: "Peppol BIS InvoiceResponse Profile 63a"
+          archetype: "PEPPOL_BIS"
+          localName: "ApplicationResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:www.peppol.eu:transaction:biitrns111:ver1.0::2.1"
+          processId: "urn:www.peppol.eu:profile:bis63a:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-ApplicationResponse-2.1.xsd"
+            - "xsl/BIIRULES-UBL-T111.xsl"
+            - "xsl/OPENPEPPOL-UBL-T111.xsl"
+
+        - id: 129
+          description: "Peppol BIS MessageLevelResponse Profile 36a"
+          archetype: "PEPPOL_BIS"
+          localName: "ApplicationResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:www.cenbii.eu:transaction:biitrns071:ver2.0:extended:urn:www.peppol.eu:bis:peppol36a:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii36:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T71.xsl"
+            - "xsl/OPENPEPPOL-UBL-T71.xsl"
+            - "maindoc/UBL-ApplicationResponse-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T71.xsl"
+
+        #   ####### EHF #######   #
+        - id: 118
+          description: "EHF v2 Invoice Profile 4a"
+          archetype: "EHF"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.difi.no:ehf:faktura:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "xsl/OPENPEPPOL-UBL-T10.xsl"
+            - "xsl/NONAT-UBL-T10.xsl"
+            - "xsl/NOGOV-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.1.xsd"
+            - "xsl/EHF-UBL-COMMON.xsl"
+          suppress:
+            - "BII2-T10-R025"
+            - "BII2-T10-R035"
+            - "BII2-T10-R037"
+            - "BII2-T10-R044"
+            - "BII2-T10-R047"
+            - "BII2-T10-R048"
+            - "BII2-T10-R049"
+            - "BII2-T10-R050"
+            - "EUGEN-T10-R041"
+            - "CL-T10-R001"
+            - "CL-T10-R007"
+            - "OP-T10-R004"
+
+        - id: 88
+          description: "EHF v2 Invoice Profile 5a"
+          archetype: "EHF"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol5a:ver2.0:extended:urn:www.difi.no:ehf:faktura:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii05:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T10.xsl"
+            - "xsl/OPENPEPPOL-UBL-T10.xsl"
+            - "xsl/NONAT-UBL-T10.xsl"
+            - "xsl/NOGOV-UBL-T10.xsl"
+            - "maindoc/UBL-Invoice-2.1.xsd"
+            - "xsl/EHF-UBL-COMMON.xsl"
+          suppress:
+            - "BII2-T10-R025"
+            - "BII2-T10-R035"
+            - "BII2-T10-R037"
+            - "BII2-T10-R044"
+            - "BII2-T10-R047"
+            - "BII2-T10-R048"
+            - "BII2-T10-R049"
+            - "BII2-T10-R050"
+            - "EUGEN-T10-R041"
+            - "CL-T10-R001"
+            - "CL-T10-R007"
+            - "OP-T10-R004"
+
+        - id: 127
+          description: "EHF v2 Catalogue"
+          archetype: "EHF"
+          localName: "Catalogue"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2::Catalogue##urn:www.cenbii.eu:transaction:biitrns019:ver2.0:extended:urn:www.peppol.eu:bis:peppol1a:ver2.0:extended:urn:www.difi.no:ehf:katalog:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii01:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T19.xsl"
+            - "xsl/OPENPEPPOL-UBL-T19.xsl"
+            - "xsl/NOGOV-UBL-T19.xsl"
+            - "maindoc/UBL-Catalogue-2.1.xsd"
+            - "xsl/EHF-UBL-COMMON.xsl"
+          suppress:
+            - "CL-T19-R004"
+            - "BII2-T19-R021"
+
+        - id: 131
+          description: "EHF v2 CatalogueResponse"
+          archetype: "EHF"
+          localName: "ApplicationResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:www.cenbii.eu:transaction:biitrns058:ver2.0:extended:urn:www.difi.no:ehf:katalogbekreftelse:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii01:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/NOGOV-UBL-T58.xsl"
+            - "xsl/BIIRULES-UBL-T58.xsl"
+            - "xsl/OPENPEPPOL-UBL-T58.xsl"
+            - "maindoc/UBL-ApplicationResponse-2.1.xsd"
+            - "xsl/EHF-UBL-COMMON.xsl"
+
+        - id: 130
+          description: "EHF v1 Order Profile 28"
+          archetype: "EHF"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol28a:ver1.0:extended:urn:www.difi.no:ehf:ordre:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii28:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/NOGOV-UBL-T01.xsl"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+            - "xsl/OPENPEPPOL-UBL-T01.xsl"
+            - "maindoc/UBL-Order-2.1.xsd"
+            - "xsl/EHF-UBL-COMMON.xsl"
+          suppress:
+            - "OP-T01-R008"
+
+        - id: 128
+          description: "EHF v1 OrderResponse Profile 28"
+          archetype: "EHF"
+          localName: "OrderResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2::OrderResponse##urn:www.cenbii.eu:transaction:biitrns076:ver2.0:extended:urn:www.peppol.eu:bis:peppol28a:ver1.0:extended:urn:www.difi.no:ehf:ordrebekreftelse:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii28:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/NOGOV-UBL-T76.xsl"
+            - "xsl/BIIRULES-UBL-T76.xsl"
+            - "xsl/OPENPEPPOL-UBL-T76.xsl"
+            - "maindoc/UBL-OrderResponse-2.1.xsd"
+            - "xsl/EHF-UBL-COMMON.xsl"
+          suppress:
+            - "OP-T76-R008"
+
+        - id: 11002
+          description: "EHF v1 OrderAgreement Profile 42"
+          archetype: "EHF"
+          localName: "OrderResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2::OrderResponse##urn:www.cenbii.eu:transaction:biitrns110:ver1.0:extended:urn:www.peppol.eu:bis:peppol42a:ver1.0:extended:urn:fdc:difi.no:2017:ehf:spec:1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii42:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/EHF-UBL-T110.xsl"
+            - "xsl/BIIRULES-UBL-T110.xsl"
+            - "xsl/OPENPEPPOL-UBL-T110.xsl"
+            - "maindoc/UBL-OrderResponse-2.1.xsd"
+            - "xsl/EHF-UBL-COMMON.xsl"
+
+        - id: 120
+          description: "EHF v2 CreditNote Profile 5a"
+          archetype: "EHF"
+          localName: "CreditNote"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:www.cenbii.eu:transaction:biitrns014:ver2.0:extended:urn:www.peppol.eu:bis:peppol5a:ver2.0:extended:urn:www.difi.no:ehf:kreditnota:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii05:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T14.xsl"
+            - "xsl/OPENPEPPOL-UBL-T14.xsl"
+            - "xsl/NONAT-UBL-T14.xsl"
+            - "xsl/NOGOV-UBL-T14.xsl"
+            - "maindoc/UBL-CreditNote-2.1.xsd"
+            - "xsl/EHF-UBL-COMMON.xsl"
+          suppress:
+            - "BII2-T14-R025"
+            - "BII2-T14-R035"
+            - "BII2-T14-R037"
+            - "BII2-T14-R044"
+            - "BII2-T14-R047"
+            - "BII2-T14-R048"
+            - "BII2-T14-R049"
+            - "BII2-T14-R050"
+            - "EUGEN-T14-R041"
+            - "CL-T14-R007"
+            - "OP-T14-R004"
+
+        - id: 121
+          description: "EHF v2 CreditNote Profile XX"
+          archetype: "EHF"
+          localName: "CreditNote"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:www.cenbii.eu:transaction:biitrns014:ver2.0:extended:urn:www.cenbii.eu:profile:biixx:ver2.0:extended:urn:www.difi.no:ehf:kreditnota:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:biixx:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T14.xsl"
+            - "xsl/OPENPEPPOL-UBL-T14.xsl"
+            - "xsl/NONAT-UBL-T14.xsl"
+            - "xsl/NOGOV-UBL-T14.xsl"
+            - "maindoc/UBL-CreditNote-2.1.xsd"
+            - "xsl/EHF-UBL-COMMON.xsl"
+          suppress:
+            - "BII2-T14-R025"
+            - "BII2-T14-R035"
+            - "BII2-T14-R037"
+            - "BII2-T14-R044"
+            - "BII2-T14-R047"
+            - "BII2-T14-R048"
+            - "BII2-T14-R049"
+            - "BII2-T14-R050"
+            - "EUGEN-T14-R041"
+            - "CL-T14-R007"
+            - "OP-T14-R004"
+
+        - id: 10121
+          description: "EHF v2 CreditNote Profile XY"
+          archetype: "EHF"
+          localName: "CreditNote"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:www.cenbii.eu:transaction:biitrns014:ver2.0:extended:urn:www.cenbii.eu:profile:biixy:ver2.0:extended:urn:www.difi.no:ehf:kreditnota:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:biixy:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T14.xsl"
+            - "xsl/OPENPEPPOL-UBL-T14.xsl"
+            - "xsl/NONAT-UBL-T14.xsl"
+            - "xsl/NOGOV-UBL-T14.xsl"
+            - "maindoc/UBL-CreditNote-2.1.xsd"
+            - "xsl/EHF-UBL-COMMON.xsl"
+          suppress:
+            - "BII2-T14-R025"
+            - "BII2-T14-R035"
+            - "BII2-T14-R037"
+            - "BII2-T14-R044"
+            - "BII2-T14-R047"
+            - "BII2-T14-R048"
+            - "BII2-T14-R049"
+            - "BII2-T14-R050"
+            - "EUGEN-T14-R041"
+            - "CL-T14-R007"
+            - "OP-T14-R004"
+
+        - id: 151
+          description: "EHF v1 DespatchAdvice Profile 30"
+          archetype: "EHF"
+          localName: "DespatchAdvice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:www.cenbii.eu:transaction:biitrns016:ver1.0:extended:urn:www.peppol.eu:bis:peppol30a:ver1.0:extended:urn:www.difi.no:ehf:pakkseddel:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii30:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/NOGOV-UBL-T16.xsl"
+            - "xsl/BIIRULES-UBL-T16.xsl"
+            - "xsl/OPENPEPPOL-UBL-T16.xsl"
+            - "maindoc/UBL-DespatchAdvice-2.1.xsd"
+            - "xsl/EHF-UBL-COMMON.xsl"
+
+        - id: 16
+          description: "EHF v1 CreditNoteReminder Profile XY"
+          archetype: "EHF"
+          localName: "Reminder"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Reminder-2::Reminder##urn:www.cenbii.eu:transaction:biicoretrdm017:ver1.0:#urn:www.cenbii.eu:profile:biixy:ver1.0#urn:www.difi.no:ehf:purring:ver1::2.0"
+          processId: "urn:www.cenbii.eu:profile:biixy:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "xsl/NONAT-UBL-T17.xsl"
+            - "maindoc/UBL-Reminder-2.0.xsd"
+
+        #   ####### PEPPOL_SI #######   #
+        - id: 126
+          description: "SimplerInvoicing v1.1 Invoice Profile 4a"
+          archetype: "PEPPOL_SI"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "simplerinvoicing_artifact/SI-UBL-INV-1.1_2.xsl"
+
+        - id: 10126
+          description: "SimplerInvoicing v1.1.x Invoice Profile 4a"
+          archetype: "PEPPOL_SI"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "simplerinvoicing_artifact/SI-UBL-INV-1.1_2.xsl"
+
+        - id: 155
+          description: "SimplerInvoicing v1.2 Invoice Profile 4a"
+          archetype: "PEPPOL_SI"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "simplerinvoicing_artifact/SI-UBL-INV-1.2.xsl"
+
+        - id: 10155
+          description: "SimplerInvoicing v1.2.x Invoice Profile 4a"
+          archetype: "PEPPOL_SI"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2.x::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "simplerinvoicing_artifact/SI-UBL-INV-1.2.xsl"
+
+        - id: 11001
+          description: "SimplerInvoicing v2.0 Invoice"
+          archetype: "PEPPOL_SI"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0::2.1"
+          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "simplerinvoicing_artifact/SI-UBL-2.0-RC1.xsl"
+
+        #   ####### SVE #######   #
+        - id: 21
+          description: "Svefaktura v1"
+          archetype: "SVE"
+          localName: "Invoice"
+          documentId: "urn:sfti:documents:BasicInvoice:1:0::Invoice##urn:sfti:documents:BasicInvoice:1:0::1.0"
+          processId: "urn:sfti:services:documentprocessing:BasicInvoice:1:0"
+          processSchema: "sfti-procid"
+          version: "1.0"
+          rules:
+            - "svefaktura1/rules_svefaktura_2016-09-01.xsl"
+            - "svefaktura1/maindoc/SFTI-BasicInvoice-1.0.xsd"
+
+        - id: 29
+          description: "Svefaktura v1+Attachment with Envelope"
+          archetype: "SVE"
+          localName: "Invoice"
+          documentId: "urn:sfti:documents:StandardBusinessDocumentHeader::Invoice##urn:sfti:documents:BasicInvoice:1:0:#BasicInvoice_ObjectEnvelope::1.0"
+          processId: "urn:sfti:services:documentprocessing:BasicInvoice:1:0"
+          processSchema: "sfti-procid"
+          version: "1.0"
+          rules:
+            - "svefaktura1/rules_svefaktura_2016-09-01.xsl"
+            - "svefaktura1/maindoc/SFTI-BasicInvoice-1.0.xsd"
+            - "svefaktura1/maindoc/SFTI-ObjectEnvelope-1.0.xsd"
+
+        - id: 159
+          description: "SFTI Svekatalog 2.0"
+          archetype: "SVE"
+          localName: "Catalogue"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2::Catalogue##urn:www.cenbii.eu:transaction:biitrns019:ver2.0:extended:urn:www.sfti.se:svekatalog:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii01:ver2.0#urn:www.sfti.se:svekatalog:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T19.xsl"
+            - "xsl/OPENPEPPOL-UBL-T19.xsl"
+            - "maindoc/UBL-Catalogue-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T19.xsl"
+
+        - id: 136
+          description: "SFTI Svekatalog 2.0 Profile 1a"
+          archetype: "SVE"
+          localName: "Catalogue"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2::Catalogue##urn:www.cenbii.eu:transaction:biitrns019:ver2.0:extended:urn:www.peppol.eu:bis:peppol1a:ver2.0:extended:urn:www.sfti.se:svekatalog:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii01:ver2.0#urn:www.sfti.se:svekatalog:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T19.xsl"
+            - "xsl/OPENPEPPOL-UBL-T19.xsl"
+            - "maindoc/UBL-Catalogue-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T19.xsl"
+
+        - id: 30
+          description: "Sve Order"
+          archetype: "SVE"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biicoretrdm001:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii03:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "maindoc/UBL-Order-2.0.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+            - "xsl/OPENPEPPOL-UBL-T01.xsl"
+            - "xsl/OPENPEPPOLCORE-UBL-T01.xsl"

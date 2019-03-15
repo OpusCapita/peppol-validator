@@ -1,4 +1,4 @@
-package com.opuscapita.peppol.validator.controller;
+package com.opuscapita.peppol.validator.controller.validators;
 
 import com.opuscapita.peppol.commons.container.ContainerMessage;
 import com.opuscapita.peppol.commons.container.metadata.MetadataExtractor;
@@ -17,15 +17,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class ContainerMetadataValidator {
+public class MetadataValidator {
 
-    private static final Logger logger = LoggerFactory.getLogger(ContainerMetadataValidator.class);
+    private static final Logger logger = LoggerFactory.getLogger(MetadataValidator.class);
 
     private Storage storage;
     private MetadataExtractor metadataExtractor;
 
     @Autowired
-    public ContainerMetadataValidator(Storage storage, MetadataExtractor metadataExtractor) {
+    public MetadataValidator(Storage storage, MetadataExtractor metadataExtractor) {
         this.storage = storage;
         this.metadataExtractor = metadataExtractor;
     }
@@ -39,7 +39,7 @@ public class ContainerMetadataValidator {
                 metadata = extractMetadata(cm);
             } catch (Exception e) {
                 logger.error("Could not extract the metadata from file: " + cm.getFileName(), e);
-                cm.setProcessingException(e.getMessage());
+                cm.getHistory().addError(e.getMessage());
                 return;
             }
         }
@@ -60,7 +60,7 @@ public class ContainerMetadataValidator {
 
         if (!missingFields.isEmpty()) {
             String tmp = missingFields.stream().collect(Collectors.joining(", "));
-            cm.setProcessingException("Missing some metadata information [" + tmp + "] for the file: " + cm.getFileName());
+            cm.getHistory().addError("Missing some metadata information [" + tmp + "] for the file: " + cm.getFileName());
         }
     }
 
@@ -79,4 +79,5 @@ public class ContainerMetadataValidator {
         cm.setMetadata(metadata);
         return metadata;
     }
+
 }

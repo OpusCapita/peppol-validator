@@ -1,6 +1,9 @@
 package com.opuscapita.peppol.validator.controller.document;
 
-import com.opuscapita.peppol.commons.validation.ValidationError;
+import com.opuscapita.peppol.commons.container.state.log.DocumentValidationError;
+import com.opuscapita.peppol.validator.controller.validators.AttachmentValidator;
+import com.opuscapita.peppol.validator.rule.ValidationRule;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 import org.springframework.util.FastByteArrayOutputStream;
@@ -40,12 +43,13 @@ public class DocumentSplitter {
     private final XMLInputFactory xmlInputFactory;
     private final AttachmentValidator attachmentValidator;
 
+    @Autowired
     public DocumentSplitter(@Lazy XMLInputFactory xmlInputFactory, AttachmentValidator attachmentValidator) {
         this.xmlInputFactory = xmlInputFactory;
         this.attachmentValidator = attachmentValidator;
     }
 
-    public DocumentSplitterResult split(InputStream inputStream) throws XMLStreamException, IOException {
+    public DocumentSplitterResult split(InputStream inputStream, ValidationRule rule) throws XMLStreamException, IOException {
         FastByteArrayOutputStream sbdh = new FastByteArrayOutputStream(2048); // seems like regular SBDH is inside this limit
         FastByteArrayOutputStream body = new FastByteArrayOutputStream(8192); // seems like regular file is inside this limit
 
@@ -57,7 +61,7 @@ public class DocumentSplitter {
         Writer sbdhWriter = new OutputStreamWriter(sbdh);
         Writer bodyWriter = new OutputStreamWriter(body);
 
-        ValidationError attachmentError = null;
+        DocumentValidationError attachmentError = null;
 
         String name = null;
         while (reader.hasNext()) {
@@ -70,11 +74,13 @@ public class DocumentSplitter {
                     collectingSbdh = true;
                     collectingBody = false;
                     putAttachment = false;
-                } else if ("Attachment".equals(name)) {
+                }
+                if ("Attachment".equals(name)) {
                     collectingSbdh = false;
                     collectingBody = false;
                     putAttachment = true;
-                } else {
+                }
+                if (rule.getLocalName().equals(name)) {
                     collectingSbdh = false;
                     collectingBody = true;
                     putAttachment = false;
@@ -102,11 +108,11 @@ public class DocumentSplitter {
             if (event.isEndElement()) {
                 EndElement end = event.asEndElement();
                 name = end.getName().getLocalPart();
-//                if (rootName.equals(name)) {
-//                    collectingSbdh = true;
-//                    collectingBody = false;
-//                    putAttachment = false;
-//                }
+                if (rule.getLocalName().equals(name)) {
+                    collectingSbdh = true;
+                    collectingBody = false;
+                    putAttachment = false;
+                }
                 if ("Attachment".equals(name)) {
                     collectingSbdh = false;
                     collectingBody = true;
@@ -118,7 +124,7 @@ public class DocumentSplitter {
         sbdhWriter.close();
         bodyWriter.close();
 
-        return new DocumentSplitterResult(sbdh.toByteArrayUnsafe(), body.toByteArrayUnsafe(), attachmentError);
+        return new DocumentSplitterResult(body.toByteArrayUnsafe(), sbdh.toByteArrayUnsafe(), attachmentError);
     }
 
 }
