@@ -9,6 +9,9 @@ COPY build.gradle settings.gradle gradlew $APP_HOME
 COPY gradle $APP_HOME/gradle
 COPY . $APP_HOME
 
+RUN cd src/main/resources && unzip -q rules.zip && rm rules.zip
+RUN cd ../../..
+
 RUN chmod +x ./gradlew
 RUN ./gradlew build || return 0
 
