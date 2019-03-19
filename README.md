@@ -2,7 +2,7 @@
 
 Peppol OpusCapita Access Point validator service running on Andariel Platform.
 
-The service reads files from the `peppol.validating.queue.in.name:peppol-validating` queue and validates them. 
+The service reads files from the `peppol.validator.queue.in.name:peppol.message.validate` queue and validates them. 
 
 The validating done using SAX validator, a javax validation implementation. The service requires validation artifacts to be pre-created. Validation artifacts can be created using schematron files usually published by OPEN PEPPOL community. Please refer peppol-artifact-creator for more info about this.
 
