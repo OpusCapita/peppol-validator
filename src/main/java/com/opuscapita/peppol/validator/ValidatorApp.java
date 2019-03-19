@@ -3,6 +3,7 @@ package com.opuscapita.peppol.validator;
 import com.opuscapita.peppol.commons.queue.consume.CommonMessageReceiver;
 import com.opuscapita.peppol.commons.queue.consume.ContainerMessageConsumer;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
@@ -45,6 +46,11 @@ public class ValidatorApp {
     public MessageListenerAdapter listenerAdapter(@NotNull CommonMessageReceiver receiver) {
         receiver.setContainerMessageConsumer(consumer);
         return new MessageListenerAdapter(receiver, "receiveMessage");
+    }
+
+    @Bean
+    public Queue queue() {
+        return new Queue(queueIn);
     }
 
 }
