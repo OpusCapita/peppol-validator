@@ -32,8 +32,8 @@ public class HeaderValidator {
     }
 
     @PostConstruct
-    private void checkValues() {
-        File file = new File(getClass().getResource(ValidationArtifactsRepository.RULES_ROOT + xsdPath).getFile());
+    private void checkArtifact() {
+        File file = repository.getArtifactAsFile(xsdPath);
         if (!file.exists()) {
             throw new IllegalArgumentException("Required file not found: " + file.getAbsolutePath());
         }

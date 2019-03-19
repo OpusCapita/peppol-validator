@@ -1,6 +1,7 @@
 package com.opuscapita.peppol.validator.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,8 @@ import java.io.File;
 @Component
 public class ValidationArtifactsRepository {
 
-    public final static String RULES_ROOT = "/rules/";
+    @Value("${peppol.validator.artifacts.repo}")
+    private String artifactsRepo;
 
     private final SchemaFactory schemaFactory;
     private final TransformerFactory transformerFactory;
@@ -30,7 +32,7 @@ public class ValidationArtifactsRepository {
     }
 
     public File getArtifactAsFile(String fileName) {
-        return new File(getClass().getResource(RULES_ROOT + fileName).getFile());
+        return new File(artifactsRepo + fileName);
     }
 
     @Cacheable("xsd")

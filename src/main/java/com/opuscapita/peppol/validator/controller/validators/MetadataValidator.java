@@ -34,7 +34,6 @@ public class MetadataValidator {
         PeppolMessageMetadata metadata = cm.getMetadata();
 
         if (metadata == null) {
-            logger.info("No metadata info found in the message: " + cm.getFileName());
             try {
                 metadata = extractMetadata(cm);
             } catch (Exception e) {

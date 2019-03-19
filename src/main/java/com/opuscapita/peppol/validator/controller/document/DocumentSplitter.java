@@ -75,15 +75,15 @@ public class DocumentSplitter {
                     collectingBody = false;
                     putAttachment = false;
                 }
-                if ("Attachment".equals(name)) {
-                    collectingSbdh = false;
-                    collectingBody = false;
-                    putAttachment = true;
-                }
                 if (rule.getLocalName().equals(name)) {
                     collectingSbdh = false;
                     collectingBody = true;
                     putAttachment = false;
+                }
+                if ("Attachment".equals(name)) {
+                    collectingSbdh = false;
+                    collectingBody = false;
+                    putAttachment = true;
                 }
             }
 

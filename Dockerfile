@@ -9,9 +9,6 @@ COPY build.gradle settings.gradle gradlew $APP_HOME
 COPY gradle $APP_HOME/gradle
 COPY . $APP_HOME
 
-RUN cd src/main/resources && unzip -q rules.zip && rm rules.zip
-RUN cd ../../..
-
 RUN chmod +x ./gradlew
 RUN ./gradlew build || return 0
 
@@ -22,6 +19,11 @@ LABEL author="Ibrahim Bilge <Ibrahim.Bilge@opuscapita.com>"
 ENV APP_HOME=/usr/app/
 WORKDIR $APP_HOME
 
+# copy and extract validation artifacts
+COPY --from=TEMP_BUILD_IMAGE $APP_HOME/src/main/resources/rules.zip .
+RUN unzip -q rules.zip
+
+# copy the actual app as jar file
 COPY --from=TEMP_BUILD_IMAGE $APP_HOME/build/libs/peppol-validator.jar .
 
 HEALTHCHECK --interval=15s --timeout=3s --retries=15 \
