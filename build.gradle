@@ -21,9 +21,7 @@ repositories {
 
 dependencies {
     compile 'com.google.guava:guava:24.0-jre'
-    compile 'com.opuscapita.peppol:peppol-commons:0.0.16'
-
-    compile 'org.springframework.boot:spring-boot-configuration-processor:2.1.3.RELEASE'
+    compile 'com.opuscapita.peppol:peppol-commons:0.0.18'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.springframework.boot:spring-boot-starter-test:2.1.0.RELEASE'
