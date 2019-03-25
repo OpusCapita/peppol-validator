@@ -41,14 +41,13 @@ public class PayloadValidator {
             if (file.toLowerCase().endsWith(".xsl")) {
                 Templates template = repository.getArtifactAsTemplate(file);
                 cm = executeXsl(data, cm, template, rule, file);
-            }
-            if (file.toLowerCase().endsWith(".xsd")) {
+            } else if (file.toLowerCase().endsWith(".xsd")) {
                 Schema schema = repository.getArtifactAsSchema(file);
                 cm = executeXsd(data, cm, schema);
+            } else {
+                logger.warn("Ignoring unknown rule format: " + file + " for file " + cm.getFileName() +
+                        "(" + rule.getDescription() + "), supported formats are 'xsl' and 'xsd'");
             }
-
-            logger.warn("Ignoring unknown rule format: " + file + " for file " + cm.getFileName() +
-                    "(" + rule.getDescription() + "), supported formats are 'xsl' and 'xsd'");
         }
 
         return cm;
