@@ -4,6 +4,7 @@ import com.opuscapita.peppol.commons.container.ContainerMessage;
 import com.opuscapita.peppol.commons.container.state.Endpoint;
 import com.opuscapita.peppol.commons.container.state.ProcessFlow;
 import com.opuscapita.peppol.commons.container.state.ProcessStep;
+import com.opuscapita.peppol.commons.container.state.Source;
 import com.opuscapita.peppol.commons.container.state.log.DocumentErrorType;
 import com.opuscapita.peppol.commons.container.state.log.DocumentLog;
 import com.opuscapita.peppol.commons.container.state.log.DocumentValidationError;
@@ -68,7 +69,7 @@ public class ValidatorMessageConsumerTest {
         System.out.println("TESTING: " + file.getAbsolutePath());
 
         String path = storage.putToCustom(new FileInputStream(file), "/peppol/test/", file.getName());
-        Endpoint endpoint = new Endpoint("test", ProcessFlow.IN, ProcessStep.TEST);
+        Endpoint endpoint = new Endpoint(Source.UNKNOWN, ProcessFlow.IN, ProcessStep.TEST);
         ContainerMessage cm = new ContainerMessage(path, endpoint);
 
         consumer.consume(cm);

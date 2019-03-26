@@ -29,6 +29,9 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
 
     private static final Logger logger = LoggerFactory.getLogger(ValidatorMessageConsumer.class);
 
+    @Value("${peppol.validator.queue.out.name}")
+    private String queueOut;
+
     @Value("${peppol.email-sender.queue.in.name}")
     private String emailSenderQueue;
 
@@ -79,7 +82,7 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
             return;
         }
 
-        logger.info("Getting validation rule of the message: " + cm.getFileName());
+        logger.debug("Getting validation rule of the message: " + cm.getFileName());
         ValidationRule rule = ruleConfig.getRule(cm);
         if (rule == null) {
             logger.info("Validation failed for the message: " + cm.toKibana() + " reason: " + cm.getHistory().getLastLog().getMessage());
@@ -90,6 +93,7 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
             ticketReporter.reportWithContainerMessage(cm, null, "Validation failed for the message: " + cm.getFileName());
             return;
         }
+        logger.info(rule.toString() + " found for the message: " + cm.getFileName());
 
         InputStream content = storage.get(cm.getFileName());
         DocumentSplitterResult parts = documentSplitter.split(content, rule);
@@ -110,10 +114,9 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
             return;
         }
 
-        String outputQueue = cm.popRoute();
-        messageQueue.convertAndSend(outputQueue, cm);
+        messageQueue.convertAndSend(queueOut, cm);
         cm.getHistory().addInfo("Validation completed successfully");
-        logger.info("The message: " + cm.toKibana() + " successfully validated and delivered to " + outputQueue + " queue");
+        logger.info("The message: " + cm.toKibana() + " successfully validated and delivered to " + queueOut + " queue");
     }
 
 }

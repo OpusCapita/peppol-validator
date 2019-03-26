@@ -128,4 +128,9 @@ public class ValidationRule {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return String.format("ValidationRule{id: %s, name: %s}", id, description);
+    }
+
 }

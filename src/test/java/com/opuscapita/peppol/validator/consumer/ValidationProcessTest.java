@@ -5,6 +5,7 @@ import com.opuscapita.peppol.commons.container.metadata.MetadataExtractor;
 import com.opuscapita.peppol.commons.container.state.Endpoint;
 import com.opuscapita.peppol.commons.container.state.ProcessFlow;
 import com.opuscapita.peppol.commons.container.state.ProcessStep;
+import com.opuscapita.peppol.commons.container.state.Source;
 import com.opuscapita.peppol.validator.controller.document.DocumentSplitter;
 import com.opuscapita.peppol.validator.controller.document.DocumentSplitterResult;
 import com.opuscapita.peppol.validator.controller.validators.HeaderValidator;
@@ -48,7 +49,7 @@ public class ValidationProcessTest {
     @Ignore
     public void testSingleFile() throws Exception {
         File file = ResourceUtils.getFile("classpath:test-materials/peppol-bis.xml");
-        Endpoint endpoint = new Endpoint("test", ProcessFlow.IN, ProcessStep.TEST);
+        Endpoint endpoint = new Endpoint(Source.UNKNOWN, ProcessFlow.IN, ProcessStep.TEST);
         ContainerMessage cm = new ContainerMessage(file.getName(), endpoint);
 
         try (InputStream inputStream = new FileInputStream(file)) {
