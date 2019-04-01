@@ -130,7 +130,7 @@ public class ValidationRule {
 
     @Override
     public String toString() {
-        return String.format("ValidationRule{id: %s, name: %s}", id, description);
+        return String.format("ValidationRule {id: %s, name: %s}", id, description);
     }
 
 }
