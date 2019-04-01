@@ -26,7 +26,7 @@ public class ValidationRuleConfig {
     public ValidationRule getRule(ContainerMessage cm) {
         Optional<ValidationRule> rule = map.stream().filter(r -> r.matches(cm)).findAny();
         if (!rule.isPresent()) {
-            cm.getHistory().addError("Validation rule not found for file " + cm.getFileName());
+            cm.getHistory().addError("Cannot find a validation artifact for file");
         }
         return rule.orElse(null);
     }
