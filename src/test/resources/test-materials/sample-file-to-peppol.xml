@@ -3,15 +3,15 @@
 	<StandardBusinessDocumentHeader>
 		<HeaderVersion>1.0</HeaderVersion>
 		<Sender>
-			<Identifier Authority="iso6523-actorid-upis">9908:919779446</Identifier>
+			<Identifier Authority="iso6523-actorid-upis">0007:987654321</Identifier>
 		</Sender>
 		<Receiver>
-			<Identifier Authority="iso6523-actorid-upis">9908:919779446</Identifier>
+			<Identifier Authority="iso6523-actorid-upis">0007:987654321</Identifier>
 		</Receiver>
 		<DocumentIdentification>
 			<Standard>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</Standard>
 			<TypeVersion>2.1</TypeVersion>
-			<InstanceIdentifier>0935c9f2-292b-11e6-9dd5-e38d13b43c0e</InstanceIdentifier>
+			<InstanceIdentifier>0935c9f2-292b-11e6-9dd5-e42613b43c0e</InstanceIdentifier>
 			<Type>Invoice</Type>
 			<CreationDateAndTime>2016-06-03T04:32:31.532978+03:00</CreationDateAndTime>
 		</DocumentIdentification>
@@ -42,7 +42,7 @@
 		</cac:AdditionalDocumentReference>
 		<cac:AccountingSupplierParty>
 			<cac:Party>
-				<cbc:EndpointID schemeID="NO:ORGNR">919779446</cbc:EndpointID>
+				<cbc:EndpointID schemeID="SE:ORGNR">987654321</cbc:EndpointID>
 				<cac:PartyName>
 					<cbc:Name>OpusCapita test</cbc:Name>
 				</cac:PartyName>
@@ -68,7 +68,7 @@
 		</cac:AccountingSupplierParty>
 		<cac:AccountingCustomerParty>
 			<cac:Party>
-				<cbc:EndpointID schemeID="NO:ORGNR">919779446</cbc:EndpointID>
+				<cbc:EndpointID schemeID="SE:ORGNR">987654321</cbc:EndpointID>
 				<cac:PartyIdentification>
 					<cbc:ID schemeID="ZZZ">0000141330</cbc:ID>
 				</cac:PartyIdentification>

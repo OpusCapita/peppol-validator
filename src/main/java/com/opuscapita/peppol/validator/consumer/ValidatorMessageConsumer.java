@@ -71,7 +71,7 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
             throw new IllegalArgumentException("File name is empty in received message: " + cm.toKibana());
         }
 
-        logger.info("Checking metadata of the message: " + cm.getFileName());
+        logger.debug("Checking metadata of the message: " + cm.getFileName());
         metadataValidator.validate(cm);
         if (cm.getHistory().hasError()) {
             logger.info("Validation failed for the message: " + cm.toKibana() + " reason: " + cm.getHistory().getLastLog().getMessage());
@@ -95,16 +95,28 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
         }
         logger.info(rule.toString() + " found for the message: " + cm.getFileName());
 
-        InputStream content = storage.get(cm.getFileName());
-        DocumentSplitterResult parts = documentSplitter.split(content, rule);
+        logger.debug("Read the file content, split it, and start actual rule validation");
+        try (InputStream content = storage.get(cm.getFileName())) {
+            DocumentSplitterResult parts = documentSplitter.split(content, rule);
 
-        cm = headerValidator.validate(parts.getHeader(), cm);
-        cm = payloadValidator.validate(parts.getBody(), cm, rule);
+            cm = headerValidator.validate(parts.getHeader(), cm);
+            cm = payloadValidator.validate(parts.getBody(), cm, rule);
 
-        if (parts.getAttachmentError() != null) {
-            cm.getHistory().addValidationError(parts.getAttachmentError());
+            if (parts.getAttachmentError() != null) {
+                cm.getHistory().addValidationError(parts.getAttachmentError());
+            }
+
+        } catch (Exception e) {
+            logger.info("Validation failed for the message: " + cm.toKibana() + " reason: " + e.getMessage());
+            cm.getHistory().addError(e.getMessage());
+            cm.getHistory().addInfo("Validation failed: unexpected error");
+
+            eventReporter.reportStatus(cm);
+            ticketReporter.reportWithContainerMessage(cm, e, "Validation failed for the message: " + cm.getFileName());
+            return;
         }
 
+        logger.debug("Validation finished, checking for any errors");
         if (cm.getHistory().hasError()) {
             cm.getHistory().addInfo("Validation failed: invalid file");
 
@@ -114,6 +126,7 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
             return;
         }
 
+        logger.debug("Validation was successful, checking for any errors");
         messageQueue.convertAndSend(queueOut, cm);
         cm.getHistory().addInfo("Validation completed successfully");
         logger.info("The message: " + cm.toKibana() + " successfully validated and delivered to " + queueOut + " queue");

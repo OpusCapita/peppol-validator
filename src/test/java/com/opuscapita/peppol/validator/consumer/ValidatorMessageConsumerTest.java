@@ -2,9 +2,6 @@ package com.opuscapita.peppol.validator.consumer;
 
 import com.opuscapita.peppol.commons.container.ContainerMessage;
 import com.opuscapita.peppol.commons.container.state.Endpoint;
-import com.opuscapita.peppol.commons.container.state.ProcessFlow;
-import com.opuscapita.peppol.commons.container.state.ProcessStep;
-import com.opuscapita.peppol.commons.container.state.Source;
 import com.opuscapita.peppol.commons.container.state.log.DocumentErrorType;
 import com.opuscapita.peppol.commons.container.state.log.DocumentLog;
 import com.opuscapita.peppol.commons.container.state.log.DocumentValidationError;
@@ -21,6 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,11 +65,12 @@ public class ValidatorMessageConsumerTest {
         List<String> expected = getExpected(file);
 
         System.out.println("TESTING: " + file.getAbsolutePath());
+        String path;
+        try (InputStream stream = new FileInputStream(file)) {
+            path = storage.putToCustom(stream, "/private/peppol/test/", file.getName());
+        }
 
-        String path = storage.putToCustom(new FileInputStream(file), "/peppol/test/", file.getName());
-        Endpoint endpoint = new Endpoint(Source.UNKNOWN, ProcessFlow.IN, ProcessStep.TEST);
-        ContainerMessage cm = new ContainerMessage(path, endpoint);
-
+        ContainerMessage cm = new ContainerMessage(path, Endpoint.TEST);
         consumer.consume(cm);
 
         assertTrue(compare(cm, expected));
