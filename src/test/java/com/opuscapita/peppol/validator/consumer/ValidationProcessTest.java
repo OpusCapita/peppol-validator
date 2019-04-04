@@ -49,7 +49,7 @@ public class ValidationProcessTest {
     @Ignore
     public void testSingleFile() throws Exception {
         File file = ResourceUtils.getFile("classpath:test-materials/sample-file-to-peppol.xml");
-        Endpoint endpoint = new Endpoint(Source.UNKNOWN, ProcessFlow.IN, ProcessStep.TEST);
+        Endpoint endpoint = new Endpoint(Source.UNKNOWN, ProcessStep.TEST);
         ContainerMessage cm = new ContainerMessage(file.getName(), endpoint);
 
         try (InputStream inputStream = new FileInputStream(file)) {
