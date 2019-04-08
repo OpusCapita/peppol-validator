@@ -1,6 +1,7 @@
 package com.opuscapita.peppol.validator.consumer;
 
 import com.opuscapita.peppol.commons.container.ContainerMessage;
+import com.opuscapita.peppol.commons.container.metadata.MetadataValidator;
 import com.opuscapita.peppol.commons.container.state.ProcessStep;
 import com.opuscapita.peppol.commons.eventing.EventReporter;
 import com.opuscapita.peppol.commons.eventing.TicketReporter;
@@ -10,7 +11,6 @@ import com.opuscapita.peppol.commons.storage.Storage;
 import com.opuscapita.peppol.validator.controller.document.DocumentSplitter;
 import com.opuscapita.peppol.validator.controller.document.DocumentSplitterResult;
 import com.opuscapita.peppol.validator.controller.validators.HeaderValidator;
-import com.opuscapita.peppol.validator.controller.validators.MetadataValidator;
 import com.opuscapita.peppol.validator.controller.validators.PayloadValidator;
 import com.opuscapita.peppol.validator.rule.ValidationRule;
 import com.opuscapita.peppol.validator.rule.ValidationRuleConfig;
@@ -49,7 +49,8 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
     public ValidatorMessageConsumer(Storage storage, MessageQueue messageQueue,
                                     EventReporter eventReporter, TicketReporter ticketReporter,
                                     HeaderValidator headerValidator, PayloadValidator payloadValidator,
-                                    ValidationRuleConfig ruleConfig, DocumentSplitter documentSplitter, MetadataValidator metadataValidator) {
+                                    ValidationRuleConfig ruleConfig, DocumentSplitter documentSplitter,
+                                    MetadataValidator metadataValidator) {
         this.storage = storage;
         this.ruleConfig = ruleConfig;
         this.messageQueue = messageQueue;

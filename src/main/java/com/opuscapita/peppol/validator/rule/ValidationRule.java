@@ -1,7 +1,7 @@
 package com.opuscapita.peppol.validator.rule;
 
 import com.opuscapita.peppol.commons.container.ContainerMessage;
-import com.opuscapita.peppol.commons.container.metadata.PeppolMessageMetadata;
+import com.opuscapita.peppol.commons.container.metadata.ContainerMessageMetadata;
 
 import java.util.List;
 
@@ -99,7 +99,7 @@ public class ValidationRule {
     }
 
     public boolean matches(ContainerMessage cm) {
-        PeppolMessageMetadata metadata = cm.getMetadata();
+        ContainerMessageMetadata metadata = cm.getMetadata();
         if (metadata == null || metadata.getDocumentTypeIdentifier() == null || metadata.getProfileTypeIdentifier() == null) {
             return false;
         }

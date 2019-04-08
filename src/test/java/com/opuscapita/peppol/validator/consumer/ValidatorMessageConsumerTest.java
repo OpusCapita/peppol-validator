@@ -1,7 +1,8 @@
 package com.opuscapita.peppol.validator.consumer;
 
 import com.opuscapita.peppol.commons.container.ContainerMessage;
-import com.opuscapita.peppol.commons.container.state.Endpoint;
+import com.opuscapita.peppol.commons.container.state.ProcessStep;
+import com.opuscapita.peppol.commons.container.state.Source;
 import com.opuscapita.peppol.commons.container.state.log.DocumentErrorType;
 import com.opuscapita.peppol.commons.container.state.log.DocumentLog;
 import com.opuscapita.peppol.commons.container.state.log.DocumentValidationError;
@@ -70,7 +71,7 @@ public class ValidatorMessageConsumerTest {
             path = storage.putToCustom(stream, "/private/peppol/test/", file.getName());
         }
 
-        ContainerMessage cm = new ContainerMessage(path, Endpoint.TEST);
+        ContainerMessage cm = new ContainerMessage(path, Source.UNKNOWN, ProcessStep.TEST);
         consumer.consume(cm);
 
         assertTrue(compare(cm, expected));
