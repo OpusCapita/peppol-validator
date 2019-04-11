@@ -64,7 +64,7 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
 
     @Override
     public void consume(@NotNull ContainerMessage cm) throws Exception {
-        cm.setStep(ProcessStep.VALIDATION);
+        cm.setStep(ProcessStep.VALIDATOR);
         cm.getHistory().addInfo("Received and started validating");
         logger.info("Validator received the message: " + cm.toKibana());
 
@@ -94,6 +94,7 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
             ticketReporter.reportWithContainerMessage(cm, null, "Validation failed for the message: " + cm.getFileName());
             return;
         }
+        cm.getHistory().addInfo("Found rule: " + rule.toString());
         logger.info(rule.toString() + " found for the message: " + cm.getFileName());
 
         logger.debug("Read the file content, split it, and start actual rule validation");
@@ -127,10 +128,10 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
             return;
         }
 
-        logger.debug("Validation was successful, checking for any errors");
-        messageQueue.convertAndSend(queueOut, cm);
         cm.getHistory().addInfo("Validation completed successfully");
         logger.info("The message: " + cm.toKibana() + " successfully validated and delivered to " + queueOut + " queue");
+        eventReporter.reportStatus(cm);
+        messageQueue.convertAndSend(queueOut, cm);
     }
 
 }
