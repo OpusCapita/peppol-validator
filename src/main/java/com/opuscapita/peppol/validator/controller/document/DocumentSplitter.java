@@ -3,6 +3,7 @@ package com.opuscapita.peppol.validator.controller.document;
 import com.opuscapita.peppol.commons.container.state.log.DocumentValidationError;
 import com.opuscapita.peppol.validator.controller.validators.AttachmentValidator;
 import com.opuscapita.peppol.validator.rule.ValidationRule;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -47,6 +48,10 @@ public class DocumentSplitter {
     }
 
     public DocumentSplitterResult split(InputStream inputStream, ValidationRule rule) throws XMLStreamException, IOException {
+        return split(inputStream, rule, null); // use the encoding defined in the file
+    }
+
+    public DocumentSplitterResult split(InputStream inputStream, ValidationRule rule, String encoding) throws XMLStreamException, IOException {
         FastByteArrayOutputStream sbdh = new FastByteArrayOutputStream(2048); // seems like regular SBDH is inside this limit
         FastByteArrayOutputStream body = new FastByteArrayOutputStream(8192); // seems like regular file is inside this limit
 
@@ -54,7 +59,10 @@ public class DocumentSplitter {
         boolean collectingBody = false;
         boolean putAttachment = false;
 
-        XMLEventReader reader = xmlInputFactory.createXMLEventReader(inputStream);
+        XMLEventReader reader = StringUtils.isBlank(encoding)
+                ? xmlInputFactory.createXMLEventReader(inputStream)
+                : xmlInputFactory.createXMLEventReader(inputStream, encoding);
+
         Writer sbdhWriter = new OutputStreamWriter(sbdh);
         Writer bodyWriter = new OutputStreamWriter(body);
 

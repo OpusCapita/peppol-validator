@@ -22,6 +22,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.xml.stream.XMLStreamException;
+import java.io.IOException;
 import java.io.InputStream;
 
 @Component
@@ -98,8 +100,8 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
         logger.info(rule.toString() + " found for the message: " + cm.getFileName());
 
         logger.debug("Read the file content, split it, and start actual rule validation");
-        try (InputStream content = storage.get(cm.getFileName())) {
-            DocumentSplitterResult parts = documentSplitter.split(content, rule);
+        try {
+            DocumentSplitterResult parts = splitDocument(cm, rule);
 
             cm = headerValidator.validate(parts.getHeader(), cm);
             cm = payloadValidator.validate(parts.getBody(), cm, rule);
@@ -132,6 +134,21 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
         logger.info("The message: " + cm.toKibana() + " successfully validated and delivered to " + queueOut + " queue");
         eventReporter.reportStatus(cm);
         messageQueue.convertAndSend(queueOut, cm);
+    }
+
+    private DocumentSplitterResult splitDocument(ContainerMessage cm, ValidationRule rule) throws IOException, XMLStreamException {
+        try {
+            try (InputStream content = storage.get(cm.getFileName())) {
+                return documentSplitter.split(content, rule);
+            }
+        } catch (XMLStreamException e) {
+            logger.warn("Document Splitter exception for file: " + cm.getFileName() + ", reason: " + e.getMessage());
+
+            try (InputStream content = storage.get(cm.getFileName())) {
+                logger.debug("Probably the file is marked as UTF8 but includes non-UTF8 chars.");
+                return documentSplitter.split(content, rule, "ISO-8859-1");
+            }
+        }
     }
 
 }
