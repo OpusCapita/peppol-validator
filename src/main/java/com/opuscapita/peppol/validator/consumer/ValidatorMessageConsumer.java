@@ -77,23 +77,25 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
         logger.debug("Checking metadata of the message: " + cm.getFileName());
         metadataValidator.validate(cm);
         if (cm.getHistory().hasError()) {
-            logger.info("Validation failed for the message: " + cm.toKibana() + " reason: " + cm.getHistory().getLastLog().getMessage());
+            String shortDescription = "Validation failed for '" + cm.getFileName() + "' reason: " + cm.getHistory().getLastLog().getMessage();
+            logger.info(shortDescription);
             cm.getHistory().addInfo("Validation failed: invalid metadata");
 
             eventReporter.reportStatus(cm);
-            ticketReporter.reportWithContainerMessage(cm, null, "Validation failed for the message: " + cm.getFileName());
+            ticketReporter.reportWithContainerMessage(cm, null, shortDescription);
             return;
         }
 
         logger.debug("Getting validation rule of the message: " + cm.getFileName());
         ValidationRule rule = ruleConfig.getRule(cm);
         if (rule == null) {
-            logger.info("Validation failed for the message: " + cm.toKibana() + " reason: " + cm.getHistory().getLastLog().getMessage());
+            String shortDescription = "Validation failed for '" + cm.getFileName() + "' reason: " + cm.getHistory().getLastLog().getMessage();
+            logger.info(shortDescription);
             cm.getHistory().addInfo("Validation failed: no rule found");
 
             eventReporter.reportStatus(cm);
             messageQueue.convertAndSend(emailSenderQueue, cm);
-            ticketReporter.reportWithContainerMessage(cm, null, "Validation failed for the message: " + cm.getFileName());
+            ticketReporter.reportWithContainerMessage(cm, null, shortDescription);
             return;
         }
         cm.getHistory().addInfo("Found rule: " + rule.toString());
@@ -111,12 +113,14 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
             }
 
         } catch (Exception e) {
-            logger.info("Validation failed for the message: " + cm.toKibana() + " reason: " + e.getMessage());
+            String shortDescription = "Validation failed for '" + cm.getFileName() + "' reason: " + e.getMessage();
+            logger.info(shortDescription);
+
             cm.getHistory().addError(e.getMessage());
             cm.getHistory().addInfo("Validation failed: unexpected error");
 
             eventReporter.reportStatus(cm);
-            ticketReporter.reportWithContainerMessage(cm, e, "Validation failed for the message: " + cm.getFileName());
+            ticketReporter.reportWithContainerMessage(cm, e, shortDescription);
             return;
         }
 
