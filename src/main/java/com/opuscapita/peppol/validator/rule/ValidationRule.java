@@ -2,6 +2,7 @@ package com.opuscapita.peppol.validator.rule;
 
 import com.opuscapita.peppol.commons.container.ContainerMessage;
 import com.opuscapita.peppol.commons.container.metadata.ContainerMessageMetadata;
+import com.opuscapita.peppol.commons.container.metadata.ContainerValidationRule;
 
 import java.util.List;
 
@@ -96,6 +97,19 @@ public class ValidationRule {
 
     public void setSuppress(List<String> suppress) {
         this.suppress = suppress;
+    }
+
+    public ContainerValidationRule convert() {
+        ContainerValidationRule rule = new ContainerValidationRule();
+        rule.setId(getId());
+        rule.setDescription(getDescription());
+        rule.setArchetype(getArchetype());
+        rule.setLocalName(getLocalName());
+        rule.setDocumentId(getDocumentId());
+        rule.setProcessId(getProcessId());
+        rule.setProcessSchema(getProcessSchema());
+        rule.setVersion(getVersion());
+        return rule;
     }
 
     public boolean matches(ContainerMessage cm) {

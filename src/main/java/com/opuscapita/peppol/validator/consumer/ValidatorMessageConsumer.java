@@ -98,6 +98,7 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
             ticketReporter.reportWithContainerMessage(cm, null, shortDescription);
             return;
         }
+        cm.getMetadata().setValidationRule(rule.convert());
         cm.getHistory().addInfo("Found rule: " + rule.toString());
         logger.info(rule.toString() + " found for the message: " + cm.getFileName());
 
