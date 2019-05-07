@@ -35,13 +35,13 @@ public class ValidationArtifactsRepository {
         return new File(artifactsRepo + fileName);
     }
 
-    @Cacheable("xsd")
+    @Cacheable("validation-xsd")
     public Schema getArtifactAsSchema(String fileName) throws SAXException {
         File sourceFile = getArtifactAsFile(fileName);
         return schemaFactory.newSchema(sourceFile);
     }
 
-    @Cacheable("xsl")
+    @Cacheable("validation-xsl")
     public Templates getArtifactAsTemplate(String fileName) throws TransformerConfigurationException {
         File sourceFile = getArtifactAsFile(fileName);
         Source xsltSource = new StreamSource(sourceFile);
