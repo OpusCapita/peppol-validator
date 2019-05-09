@@ -451,6 +451,8 @@ peppol:
             - "xsl/CEN-EN16931-UBL.xsl"
             - "xsl/PEPPOL-EN16931-CII.xsl"
             - "xsl/PEPPOL-EN16931-UBL.xsl"
+          suppress:
+            - "BR-CO-25"
 
         - id: 28
           description: "Peppol BIS v1 DespatchAdvice Profile 30a"
