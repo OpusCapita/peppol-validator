@@ -1,6 +1,7 @@
 package com.opuscapita.peppol.validator.rule;
 
 import com.opuscapita.peppol.commons.container.ContainerMessage;
+import com.opuscapita.peppol.commons.container.metadata.ContainerMessageMetadata;
 import org.jetbrains.annotations.Nullable;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -31,4 +32,9 @@ public class ValidationRuleConfig {
         return rule.orElse(null);
     }
 
+    @Nullable
+    public ValidationRule getRule(ContainerMessageMetadata metadata) {
+        Optional<ValidationRule> rule = map.stream().filter(r -> r.matches(metadata)).findAny();
+        return rule.orElse(null);
+    }
 }

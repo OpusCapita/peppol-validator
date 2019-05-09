@@ -113,7 +113,10 @@ public class ValidationRule {
     }
 
     public boolean matches(ContainerMessage cm) {
-        ContainerMessageMetadata metadata = cm.getMetadata();
+        return matches(cm.getMetadata());
+    }
+
+    public boolean matches(ContainerMessageMetadata metadata) {
         if (metadata == null || metadata.getDocumentTypeIdentifier() == null || metadata.getProfileTypeIdentifier() == null) {
             return false;
         }
