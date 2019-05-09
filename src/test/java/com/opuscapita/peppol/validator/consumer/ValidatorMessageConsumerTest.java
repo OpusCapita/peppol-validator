@@ -68,7 +68,7 @@ public class ValidatorMessageConsumerTest {
         System.out.println("TESTING: " + file.getAbsolutePath());
         String path;
         try (InputStream stream = new FileInputStream(file)) {
-            path = storage.putToCustom(stream, "/private/peppol/test/", file.getName());
+            path = storage.put(stream, "/private/peppol/test/", file.getName());
         }
 
         ContainerMessage cm = new ContainerMessage(path, Source.UNKNOWN, ProcessStep.TEST);
