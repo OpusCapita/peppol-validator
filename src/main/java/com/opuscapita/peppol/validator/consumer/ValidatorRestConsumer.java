@@ -98,7 +98,7 @@ public class ValidatorRestConsumer {
             response.getMessages().addAll(cm.getHistory().getLogs());
 
         } catch (Exception e) {
-            response.addMessage("Validation failed for '" + filename + "' reason: " + e.getMessage());
+            response.addMessage(e.getMessage());
         }
 
         logger.debug("Rest validation finished");

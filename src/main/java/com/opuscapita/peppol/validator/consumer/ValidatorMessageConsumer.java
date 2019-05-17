@@ -35,9 +35,6 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
     @Value("${peppol.validator.queue.out.name}")
     private String queueOut;
 
-    @Value("${peppol.email-sender.queue.in.name}")
-    private String emailSenderQueue;
-
     private Storage storage;
     private MessageQueue messageQueue;
     private EventReporter eventReporter;
@@ -95,7 +92,6 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
             cm.getHistory().addInfo("Validation failed: no rule found");
 
             eventReporter.reportStatus(cm);
-            messageQueue.convertAndSend(emailSenderQueue, cm);
             ticketReporter.reportWithContainerMessage(cm, null, shortDescription);
             return;
         }
@@ -136,8 +132,7 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
             cm.getHistory().addInfo("Validation failed: invalid file");
 
             eventReporter.reportStatus(cm);
-            messageQueue.convertAndSend(emailSenderQueue, cm);
-            logger.info("Validation failed for " + cm.toKibana() + ", message sent to " + emailSenderQueue + " queue");
+            logger.info("Validation failed for " + cm.toKibana());
             return;
         }
 
@@ -161,5 +156,4 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
             }
         }
     }
-
 }
