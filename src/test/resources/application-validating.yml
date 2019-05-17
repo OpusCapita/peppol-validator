@@ -13,7 +13,7 @@ peppol:
           version: "2.0"
           rules:
             - "xsl/BIIRULES-UBL-T10.xsl"
-            - "maindoc/UBL-Invoice-2.0.xsd"
+            - "maindoc/UBL-Invoice-2.1.xsd"
 
         - id: 36
           description: "CEN BII v1 Invoice Profile 5"
@@ -25,7 +25,7 @@ peppol:
           version: "2.0"
           rules:
             - "xsl/BIIRULES-UBL-T10.xsl"
-            - "maindoc/UBL-Invoice-2.0.xsd"
+            - "maindoc/UBL-Invoice-2.1.xsd"
 
         - id: 48
           description: "CEN BII v2 Invoice Profile 4"
@@ -299,11 +299,40 @@ peppol:
             - "maindoc/UBL-Catalogue-2.1.xsd"
             - "xsl/OPENPEPPOLCORE-UBL-T19.xsl"
 
+        - id: 10139
+          description: "Peppol BIS v2 Catalogue Profile 1a"
+          archetype: "PEPPOL_BIS"
+          localName: "Catalogue"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2::Catalogue##urn:www.cenbii.eu:transaction:biitrns019:ver2.0:extended:urn:www.peppol.eu:bis:peppol1a:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii01:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T19.xsl"
+            - "xsl/OPENPEPPOL-UBL-T19.xsl"
+            - "maindoc/UBL-Catalogue-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T19.xsl"
+
+        # deprecate - use 10072 instead
         - id: 72
           description: "Peppol BIS v2 CatalogueResponse"
           archetype: "PEPPOL_BIS"
           localName: "ApplicationResponse"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:www.cenbii.eu:transaction:biitrns058:ver2.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii01:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "xsl/BIIRULES-UBL-T58.xsl"
+            - "xsl/OPENPEPPOL-UBL-T58.xsl"
+            - "maindoc/UBL-ApplicationResponse-2.1.xsd"
+            - "xsl/OPENPEPPOLCORE-UBL-T58.xsl"
+
+        - id: 10072
+          description: "Peppol BIS v2 CatalogueResponse"
+          archetype: "PEPPOL_BIS"
+          localName: "ApplicationResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:www.cenbii.eu:transaction:biitrns058:ver2.0:extended:urn:www.peppol.eu:bis:peppol1a:ver2.0::2.1"
           processId: "urn:www.cenbii.eu:profile:bii01:ver2.0"
           processSchema: "cenbii-procid-ubl"
           version: "2.1"
@@ -774,11 +803,33 @@ peppol:
             - "simplerinvoicing_artifact/SI-UBL-INV-1.1_2.xsl"
 
         - id: 10126
+          description: "SimplerInvoicing v1.1 Invoice Profile 4a"
+          archetype: "PEPPOL_SI"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "simplerinvoicing_artifact/SI-UBL-INV-1.1_2.xsl"
+
+        - id: 11004
           description: "SimplerInvoicing v1.1.x Invoice Profile 4a"
           archetype: "PEPPOL_SI"
           localName: "Invoice"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x::2.1"
           processId: "urn:www.cenbii.eu:profile:bii04:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "simplerinvoicing_artifact/SI-UBL-INV-1.1_2.xsl"
+
+        - id: 11005
+          description: "SimplerInvoicing v1.1.x Invoice Profile 4a"
+          archetype: "PEPPOL_SI"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver2.0"
           processSchema: "cenbii-procid-ubl"
           version: "2.1"
           rules:
@@ -796,11 +847,33 @@ peppol:
             - "simplerinvoicing_artifact/SI-UBL-INV-1.2.xsl"
 
         - id: 10155
+          description: "SimplerInvoicing v1.2 Invoice Profile 4a"
+          archetype: "PEPPOL_SI"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "simplerinvoicing_artifact/SI-UBL-INV-1.2.xsl"
+
+        - id: 11006
           description: "SimplerInvoicing v1.2.x Invoice Profile 4a"
           archetype: "PEPPOL_SI"
           localName: "Invoice"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2.x::2.1"
           processId: "urn:www.cenbii.eu:profile:bii04:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "simplerinvoicing_artifact/SI-UBL-INV-1.2.xsl"
+
+        - id: 11007
+          description: "SimplerInvoicing v1.2.x Invoice Profile 4a"
+          archetype: "PEPPOL_SI"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2.x::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii04:ver2.0"
           processSchema: "cenbii-procid-ubl"
           version: "2.1"
           rules:
@@ -872,7 +945,7 @@ peppol:
             - "xsl/OPENPEPPOLCORE-UBL-T19.xsl"
 
         - id: 30
-          description: "Sve Order"
+          description: "Sve Order Profile 03"
           archetype: "SVE"
           localName: "Order"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biicoretrdm001:ver1.0::2.0"
@@ -881,6 +954,48 @@ peppol:
           version: "2.0"
           rules:
             - "maindoc/UBL-Order-2.0.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+            - "xsl/OPENPEPPOL-UBL-T01.xsl"
+            - "xsl/OPENPEPPOLCORE-UBL-T01.xsl"
+
+        - id: 10030
+          description: "Sve Order Profile 03"
+          archetype: "SVE"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biicoretrdm001:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii03:ver1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Order-2.1.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+            - "xsl/OPENPEPPOL-UBL-T01.xsl"
+            - "xsl/OPENPEPPOLCORE-UBL-T01.xsl"
+
+        - id: 11030
+          description: "Sve Order Profile 28"
+          archetype: "SVE"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biicoretrdm001:ver1.0::2.0"
+          processId: "urn:www.cenbii.eu:profile:bii28:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "maindoc/UBL-Order-2.0.xsd"
+            - "xsl/BIIRULES-UBL-T01.xsl"
+            - "xsl/OPENPEPPOL-UBL-T01.xsl"
+            - "xsl/OPENPEPPOLCORE-UBL-T01.xsl"
+
+        - id: 11031
+          description: "Sve Order Profile 28"
+          archetype: "SVE"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:www.cenbii.eu:transaction:biicoretrdm001:ver1.0::2.1"
+          processId: "urn:www.cenbii.eu:profile:bii28:ver2.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Order-2.1.xsd"
             - "xsl/BIIRULES-UBL-T01.xsl"
             - "xsl/OPENPEPPOL-UBL-T01.xsl"
             - "xsl/OPENPEPPOLCORE-UBL-T01.xsl"

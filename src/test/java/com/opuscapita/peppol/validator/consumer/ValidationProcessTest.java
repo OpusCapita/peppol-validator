@@ -69,6 +69,4 @@ public class ValidationProcessTest {
             logger.info("Validation successful for the file: " + file.getName());
         }
     }
-
 }
-

@@ -12,6 +12,7 @@ import com.opuscapita.peppol.validator.controller.document.DocumentSplitter;
 import com.opuscapita.peppol.validator.controller.document.DocumentSplitterResult;
 import com.opuscapita.peppol.validator.controller.validators.HeaderValidator;
 import com.opuscapita.peppol.validator.controller.validators.PayloadValidator;
+import com.opuscapita.peppol.validator.rule.SvefakturaRuleExceptions;
 import com.opuscapita.peppol.validator.rule.ValidationRule;
 import com.opuscapita.peppol.validator.rule.ValidationRuleConfig;
 import org.apache.commons.lang3.StringUtils;
@@ -111,6 +112,11 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
 
             if (parts.getAttachmentError() != null) {
                 cm.getHistory().addValidationError(parts.getAttachmentError());
+            }
+
+            // Svefaktura v1+Attachment with Envelope
+            if (rule.getId() == 29) {
+                SvefakturaRuleExceptions.except(cm);
             }
 
         } catch (Exception e) {

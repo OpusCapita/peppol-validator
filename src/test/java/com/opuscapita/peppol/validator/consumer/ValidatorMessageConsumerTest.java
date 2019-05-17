@@ -1,12 +1,9 @@
 package com.opuscapita.peppol.validator.consumer;
 
-import com.opuscapita.peppol.commons.container.ContainerMessage;
-import com.opuscapita.peppol.commons.container.state.ProcessStep;
-import com.opuscapita.peppol.commons.container.state.Source;
 import com.opuscapita.peppol.commons.container.state.log.DocumentErrorType;
 import com.opuscapita.peppol.commons.container.state.log.DocumentLog;
 import com.opuscapita.peppol.commons.container.state.log.DocumentValidationError;
-import com.opuscapita.peppol.commons.storage.Storage;
+import com.opuscapita.peppol.validator.rest.dto.ValidationRestResponse;
 import org.apache.commons.io.FileUtils;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -17,9 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,15 +29,12 @@ import static org.junit.Assert.fail;
 public class ValidatorMessageConsumerTest {
 
     @Autowired
-    private ValidatorMessageConsumer consumer;
-
-    @Autowired
-    private Storage storage;
+    private ValidatorTestConsumer consumer;
 
     @Test
     @Ignore
     public void goThroughTestMaterials() throws Exception {
-        File testFiles = new File(ValidatorMessageConsumerTest.class.getResource("/test-materials").getFile());
+        File testFiles = new File(getClass().getResource("/test-materials").getFile());
         processDirectory(testFiles);
     }
 
@@ -63,19 +55,20 @@ public class ValidatorMessageConsumerTest {
     }
 
     private void processFile(File file) throws Exception {
-        List<String> expected = getExpected(file);
-
         System.out.println("TESTING: " + file.getAbsolutePath());
-        String path;
-        try (InputStream stream = new FileInputStream(file)) {
-            path = storage.put(stream, "/private/peppol/test/", file.getName());
-        }
+        ValidationRestResponse response = consumer.consume(file);
 
-        ContainerMessage cm = new ContainerMessage(path, Source.UNKNOWN, ProcessStep.TEST);
-        consumer.consume(cm);
+        List<String> expected = getExpected(file);
+        System.out.println("Rule: " + ((response.getRule() != null) ? response.getRule().toString() : "-"));
+        assertTrue(compare(file.getName(), response, expected));
 
-        assertTrue(compare(cm, expected));
-        System.out.println("PASSED: " + file.getAbsolutePath());
+        System.out.println("PASSED: " + file.getAbsolutePath() +
+                " [" +
+                    response.getMessages().stream().filter(DocumentLog::isError).count() + " error(s), " +
+                    response.getMessages().stream().filter(DocumentLog::isValidationError).count() + " validation error(s), " +
+                    response.getMessages().stream().filter(log -> log.isWarning() && DocumentErrorType.VALIDATION_ERROR.equals(log.getErrorType())).count() + " validation warning(s)" +
+                "]");
+        System.out.println("\n");
     }
 
     // an assumption is made that file is formatted
@@ -114,9 +107,9 @@ public class ValidatorMessageConsumerTest {
         return expected;
     }
 
-    private boolean compare(ContainerMessage cm, List<String> expected) {
+    private boolean compare(String filename, ValidationRestResponse response, List<String> expected) {
         boolean passed = true;
-        for (DocumentLog log : cm.getHistory().getLogs()) {
+        for (DocumentLog log : response.getMessages()) {
             if (!log.isInfo()) {
                 if (DocumentErrorType.VALIDATION_ERROR.equals(log.getErrorType())) {
                     DocumentValidationError err = log.getValidationError();
@@ -126,24 +119,20 @@ public class ValidatorMessageConsumerTest {
                     if (expected.contains(line)) {
                         expected.remove(line);
                     } else {
-                        System.err.println("Unexpected [" + line + "] in file " + cm.getFileName());
+                        System.err.println("Unexpected [" + line + "] in file " + filename);
                         System.err.println("\t" + log.getMessage());
                         passed = false;
                     }
                 } else {
-                    fail("File got " + log.getErrorType() + ", not validation error");
+                    fail("File got " + log.getErrorType() + ", not validation error\n" + log.toString());
                 }
-
             }
-
         }
 
         for (String line : expected) {
-            System.err.println("Expected [" + line + "] not in file " + cm.getFileName());
+            System.err.println("Expected [" + line + "] not in file " + filename);
             passed = false;
         }
         return passed;
     }
-
 }
-

@@ -16,9 +16,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.xml.stream.XMLStreamException;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -27,9 +28,9 @@ import java.util.stream.Collectors;
 
 @SuppressWarnings("Duplicates")
 @Component
-public class ValidatorRestConsumer {
+public class ValidatorTestConsumer {
 
-    private static final Logger logger = LoggerFactory.getLogger(ValidatorRestConsumer.class);
+    private static final Logger logger = LoggerFactory.getLogger(ValidatorTestConsumer.class);
 
     private ValidationRuleConfig ruleConfig;
     private HeaderValidator headerValidator;
@@ -38,7 +39,7 @@ public class ValidatorRestConsumer {
     private MetadataExtractor metadataExtractor;
 
     @Autowired
-    public ValidatorRestConsumer(HeaderValidator headerValidator, PayloadValidator payloadValidator,
+    public ValidatorTestConsumer(HeaderValidator headerValidator, PayloadValidator payloadValidator,
                                  ValidationRuleConfig ruleConfig, DocumentSplitter documentSplitter,
                                  MetadataExtractor metadataExtractor) {
         this.ruleConfig = ruleConfig;
@@ -48,8 +49,8 @@ public class ValidatorRestConsumer {
         this.metadataExtractor = metadataExtractor;
     }
 
-    public ValidationRestResponse consume(MultipartFile file) throws Exception {
-        String filename = file.getOriginalFilename();
+    public ValidationRestResponse consume(File file) throws Exception {
+        String filename = file.getName();
         ValidationRestResponse response = new ValidationRestResponse();
 
         logger.debug("Extracting metadata of the message: " + filename);
@@ -80,7 +81,7 @@ public class ValidatorRestConsumer {
         logger.debug("Split the content, and start actual rule validation");
         try {
             // creating a temp container message to collect validation errors
-            ContainerMessage cm = new ContainerMessage(file.getOriginalFilename());
+            ContainerMessage cm = new ContainerMessage(file.getName());
 
             DocumentSplitterResult parts = splitDocument(file, rule);
             cm = headerValidator.validate(parts.getHeader(), cm);
@@ -101,33 +102,33 @@ public class ValidatorRestConsumer {
             response.addMessage("Validation failed for '" + filename + "' reason: " + e.getMessage());
         }
 
-        logger.debug("Rest validation finished");
+        logger.debug("Test validation finished");
         return response;
     }
 
-    private DocumentSplitterResult splitDocument(MultipartFile file, ValidationRule rule) throws IOException, XMLStreamException {
+    private DocumentSplitterResult splitDocument(File file, ValidationRule rule) throws IOException, XMLStreamException {
         try {
-            try (InputStream content = file.getInputStream()) {
+            try (InputStream content = new FileInputStream(file)) {
                 return documentSplitter.split(content, rule);
             }
         } catch (XMLStreamException e) {
-            logger.warn("Document Splitter exception for file: " + file.getOriginalFilename() + ", reason: " + e.getMessage());
+            logger.warn("Document Splitter exception for file: " + file.getName() + ", reason: " + e.getMessage());
 
-            try (InputStream content = file.getInputStream()) {
+            try (InputStream content = new FileInputStream(file)) {
                 logger.debug("Probably the file is marked as UTF8 but includes non-UTF8 chars.");
                 return documentSplitter.split(content, rule, "ISO-8859-1");
             }
         }
     }
 
-    private ContainerMessageMetadata extractMetadataFromHeader(MultipartFile file) throws Exception {
-        try (InputStream content = file.getInputStream()) {
+    private ContainerMessageMetadata extractMetadataFromHeader(File file) throws Exception {
+        try (InputStream content = new FileInputStream(file)) {
             return metadataExtractor.extract(content);
         }
     }
 
-    private ContainerMessageMetadata extractMetadataFromPayload(MultipartFile file) throws Exception {
-        try (InputStream content = file.getInputStream()) {
+    private ContainerMessageMetadata extractMetadataFromPayload(File file) throws Exception {
+        try (InputStream content = new FileInputStream(file)) {
             return metadataExtractor.extractFromPayload(content);
         }
     }
