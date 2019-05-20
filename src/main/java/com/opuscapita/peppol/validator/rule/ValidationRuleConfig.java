@@ -1,6 +1,7 @@
 package com.opuscapita.peppol.validator.rule;
 
 import com.opuscapita.peppol.commons.container.ContainerMessage;
+import com.opuscapita.peppol.commons.container.metadata.ContainerMessageMetadata;
 import org.jetbrains.annotations.Nullable;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -26,9 +27,14 @@ public class ValidationRuleConfig {
     public ValidationRule getRule(ContainerMessage cm) {
         Optional<ValidationRule> rule = map.stream().filter(r -> r.matches(cm)).findAny();
         if (!rule.isPresent()) {
-            cm.getHistory().addError("Validation rule not found for file " + cm.getFileName());
+            cm.getHistory().addError("Cannot find a validation artifact for file");
         }
         return rule.orElse(null);
     }
 
+    @Nullable
+    public ValidationRule getRule(ContainerMessageMetadata metadata) {
+        Optional<ValidationRule> rule = map.stream().filter(r -> r.matches(metadata)).findAny();
+        return rule.orElse(null);
+    }
 }

@@ -5,6 +5,7 @@ import com.opuscapita.peppol.commons.container.state.log.DocumentValidationError
 import com.opuscapita.peppol.validator.controller.ValidationArtifactsRepository;
 import com.opuscapita.peppol.validator.controller.parser.ValidationResultParser;
 import com.opuscapita.peppol.validator.rule.ValidationRule;
+import net.sf.saxon.trans.XPathException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import org.springframework.util.FastByteArrayOutputStream;
 import org.xml.sax.SAXException;
 
 import javax.xml.transform.Templates;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.validation.Schema;
 import java.io.IOException;
@@ -34,21 +34,20 @@ public class PayloadValidator {
         this.resultParser = resultParser;
     }
 
-    public ContainerMessage validate(byte[] data, ContainerMessage cm, ValidationRule rule) throws TransformerConfigurationException, IOException, SAXException {
+    public ContainerMessage validate(byte[] data, ContainerMessage cm, ValidationRule rule) throws TransformerException, IOException, SAXException {
         for (String file : rule.getRules()) {
             logger.debug("Running check " + file + " against " + cm.getFileName());
 
             if (file.toLowerCase().endsWith(".xsl")) {
                 Templates template = repository.getArtifactAsTemplate(file);
                 cm = executeXsl(data, cm, template, rule, file);
-            }
-            if (file.toLowerCase().endsWith(".xsd")) {
+            } else if (file.toLowerCase().endsWith(".xsd")) {
                 Schema schema = repository.getArtifactAsSchema(file);
                 cm = executeXsd(data, cm, schema);
+            } else {
+                logger.warn("Ignoring unknown rule format: " + file + " for file " + cm.getFileName() +
+                        "(" + rule.getDescription() + "), supported formats are 'xsl' and 'xsd'");
             }
-
-            logger.warn("Ignoring unknown rule format: " + file + " for file " + cm.getFileName() +
-                    "(" + rule.getDescription() + "), supported formats are 'xsl' and 'xsd'");
         }
 
         return cm;
@@ -62,15 +61,15 @@ public class PayloadValidator {
         return cm;
     }
 
-    private ContainerMessage executeXsl(byte[] data, ContainerMessage cm, Templates template, ValidationRule rule, String file) throws IOException, SAXException {
+    private ContainerMessage executeXsl(byte[] data, ContainerMessage cm, Templates template, ValidationRule rule, String file) throws TransformerException, IOException, SAXException {
         try {
             FastByteArrayOutputStream rawResult = validator.validate(data, template);
             return resultParser.parse(rawResult.getInputStream(), cm, rule);
-        } catch (TransformerException e) {
+        } catch (XPathException e) {
             DocumentValidationError validationError = new DocumentValidationError("XSL Parser Failure")
                     .withLocation(e.getLocator() == null ? "Undefined location" : e.getLocator().toString())
                     .withText(e.getMessage())
-                    .withIdentifier("ERR-UNKNOWN")
+                    .withIdentifier(e.getErrorCodeQName() == null ? "ERR-UNKNOWN" : e.getErrorCodeQName().toString())
                     .withFlag("FATAL")
                     .withTest("XSL Validation: " + file);
             cm.getHistory().addValidationError(validationError);

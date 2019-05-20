@@ -1,7 +1,8 @@
 package com.opuscapita.peppol.validator.rule;
 
 import com.opuscapita.peppol.commons.container.ContainerMessage;
-import com.opuscapita.peppol.commons.container.metadata.PeppolMessageMetadata;
+import com.opuscapita.peppol.commons.container.metadata.ContainerMessageMetadata;
+import com.opuscapita.peppol.commons.container.metadata.ContainerValidationRule;
 
 import java.util.List;
 
@@ -98,8 +99,24 @@ public class ValidationRule {
         this.suppress = suppress;
     }
 
+    public ContainerValidationRule convert() {
+        ContainerValidationRule rule = new ContainerValidationRule();
+        rule.setId(getId());
+        rule.setDescription(getDescription());
+        rule.setArchetype(getArchetype());
+        rule.setLocalName(getLocalName());
+        rule.setDocumentId(getDocumentId());
+        rule.setProcessId(getProcessId());
+        rule.setProcessSchema(getProcessSchema());
+        rule.setVersion(getVersion());
+        return rule;
+    }
+
     public boolean matches(ContainerMessage cm) {
-        PeppolMessageMetadata metadata = cm.getMetadata();
+        return matches(cm.getMetadata());
+    }
+
+    public boolean matches(ContainerMessageMetadata metadata) {
         if (metadata == null || metadata.getDocumentTypeIdentifier() == null || metadata.getProfileTypeIdentifier() == null) {
             return false;
         }
@@ -126,6 +143,11 @@ public class ValidationRule {
         result = 31 * result + (processId != null ? processId.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("ValidationRule {id: %s, name: %s}", id, description);
     }
 
 }
