@@ -171,6 +171,147 @@ peppol:
             - "maindoc/UBL-DespatchAdvice-2.1.xsd"
             - "xsl/BIIRULES-UBL-T16.xsl"
 
+        #   ####### PEPPOL_BIS 3 #######   #
+        - id: 158
+          description: "Peppol BIS v3 Invoice"
+          archetype: "PEPPOL_BIS"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1"
+          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Invoice-2.1.xsd"
+            - "xsl/CEN-EN16931-CII.xsl"
+            - "xsl/CEN-EN16931-UBL.xsl"
+            - "xsl/PEPPOL-EN16931-CII.xsl"
+            - "xsl/PEPPOL-EN16931-UBL.xsl"
+
+        - id: 160
+          description: "Peppol BIS v3 CreditNote"
+          archetype: "PEPPOL_BIS"
+          localName: "CreditNote"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1"
+          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-CreditNote-2.1.xsd"
+            - "xsl/CEN-EN16931-CII.xsl"
+            - "xsl/CEN-EN16931-UBL.xsl"
+            - "xsl/PEPPOL-EN16931-CII.xsl"
+            - "xsl/PEPPOL-EN16931-UBL.xsl"
+          suppress:
+            - "BR-CO-25"
+
+        - id: 30003
+          description: "Peppol BIS v3 Order"
+          archetype: "PEPPOL_BIS"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1"
+          processId: "urn:fdc:peppol.eu:poacc:bis:order_only:3"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Order-2.1.xsd"
+            - "xsl/PEPPOLBIS-T01.xsl"
+
+        - id: 30004
+          description: "Peppol BIS v3 Order Response"
+          archetype: "PEPPOL_BIS"
+          localName: "OrderResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2::OrderResponse##urn:fdc:peppol.eu:poacc:trns:order_response:3::2.1"
+          processId: "urn:fdc:peppol.eu:poacc:bis:ordering:3"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-OrderResponse-2.1.xsd"
+            - "xsl/PEPPOLBIS-T76.xsl"
+
+        - id: 30005
+          description: "Peppol BIS v3 Order Agreement"
+          archetype: "PEPPOL_BIS"
+          localName: "OrderResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2::OrderResponse##urn:fdc:peppol.eu:poacc:trns:order_agreement:3::2.1"
+          processId: "urn:fdc:peppol.eu:poacc:bis:order_agreement:3"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-OrderResponse-2.1.xsd"
+            - "xsl/PEPPOLBIS-T110.xsl"
+
+        - id: 30006
+          description: "Peppol BIS v3 Catalogue"
+          archetype: "PEPPOL_BIS"
+          localName: "Catalogue"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2::Catalogue##urn:fdc:peppol.eu:poacc:trns:catalogue:3::2.1"
+          processId: "urn:fdc:peppol.eu:poacc:bis:catalogue_only:3"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Catalogue-2.1.xsd"
+            - "xsl/PEPPOLBIS-T19.xsl"
+
+        - id: 30007
+          description: "Peppol BIS v3 Catalogue Response"
+          archetype: "PEPPOL_BIS"
+          localName: "ApplicationResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:fdc:peppol.eu:poacc:trns:catalogue_response:3::2.1"
+          processId: "urn:fdc:peppol.eu:poacc:bis:catalogue_only:3"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-ApplicationResponse-2.1.xsd"
+            - "xsl/PEPPOLBIS-T58.xsl"
+
+        - id: 30008
+          description: "Peppol BIS v3 Despatch Advice"
+          archetype: "PEPPOL_BIS"
+          localName: "DespatchAdvice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3::2.1"
+          processId: "urn:fdc:peppol.eu:poacc:bis:despatch_advice:3"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-DespatchAdvice-2.1.xsd"
+            - "xsl/PEPPOLBIS-T16.xsl"
+
+        - id: 30009
+          description: "Peppol BIS v3 Punch Out"
+          archetype: "PEPPOL_BIS"
+          localName: "Catalogue"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2::Catalogue##urn:fdc:peppol.eu:poacc:trns:punch_out:3::2.1"
+          processId: "urn:fdc:peppol.eu:poacc:bis:punch_out:3"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Catalogue-2.1.xsd"
+            - "xsl/PEPPOLBIS-T77.xsl"
+
+        - id: 30009
+          description: "Peppol BIS v3 Message Level Response"
+          archetype: "PEPPOL_BIS"
+          localName: "ApplicationResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:fdc:peppol.eu:poacc:trns:mlr:3::2.1"
+          processId: "urn:fdc:peppol.eu:poacc:bis:mlr:3"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-ApplicationResponse-2.1.xsd"
+            - "xsl/PEPPOLBIS-T71.xsl"
+
+        - id: 30010
+          description: "Peppol BIS v3 Invoice Response"
+          archetype: "PEPPOL_BIS"
+          localName: "ApplicationResponse"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:fdc:peppol.eu:poacc:trns:invoice_response:3::2.1"
+          processId: "urn:fdc:peppol.eu:poacc:bis:invoice_response:3"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-ApplicationResponse-2.1.xsd"
+            - "xsl/PEPPOLBIS-T111.xsl"
+
         #   ####### PEPPOL_BIS #######   #
         - id: 115
           description: "Peppol BIS v1 Invoice Profile 5a"
@@ -269,21 +410,6 @@ peppol:
             - "xsl/BIIRULES-UBL-T10.xsl"
             - "maindoc/UBL-Invoice-2.1.xsd"
             - "xsl/OPENPEPPOLCORE-UBL-T10.xsl"
-
-        - id: 158
-          description: "Peppol BIS v3 Invoice"
-          archetype: "PEPPOL_BIS"
-          localName: "Invoice"
-          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1"
-          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
-          processSchema: "cenbii-procid-ubl"
-          version: "2.1"
-          rules:
-            - "maindoc/UBL-Invoice-2.1.xsd"
-            - "xsl/CEN-EN16931-CII.xsl"
-            - "xsl/CEN-EN16931-UBL.xsl"
-            - "xsl/PEPPOL-EN16931-CII.xsl"
-            - "xsl/PEPPOL-EN16931-UBL.xsl"
 
         - id: 139
           description: "Peppol BIS v2 Catalogue Profile 1a"
@@ -465,23 +591,6 @@ peppol:
             - "xsl/BIIRULES-UBL-T14.xsl"
             - "maindoc/UBL-CreditNote-2.1.xsd"
             - "xsl/OPENPEPPOLCORE-UBL-T14.xsl"
-
-        - id: 160
-          description: "Peppol BIS v3 CreditNote"
-          archetype: "PEPPOL_BIS"
-          localName: "CreditNote"
-          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1"
-          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
-          processSchema: "cenbii-procid-ubl"
-          version: "2.1"
-          rules:
-            - "maindoc/UBL-CreditNote-2.1.xsd"
-            - "xsl/CEN-EN16931-CII.xsl"
-            - "xsl/CEN-EN16931-UBL.xsl"
-            - "xsl/PEPPOL-EN16931-CII.xsl"
-            - "xsl/PEPPOL-EN16931-UBL.xsl"
-          suppress:
-            - "BR-CO-25"
 
         - id: 28
           description: "Peppol BIS v1 DespatchAdvice Profile 30a"
