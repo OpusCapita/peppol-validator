@@ -26,7 +26,7 @@ RUN unzip -q rules.zip
 # copy the actual app as jar file
 COPY --from=TEMP_BUILD_IMAGE $APP_HOME/build/libs/peppol-validator.jar .
 
-HEALTHCHECK --interval=15s --timeout=3s --retries=15 \
+HEALTHCHECK --interval=15s --timeout=30s --start-period=40 --retries=15 \
   CMD curl --silent --fail http://localhost:3039/api/health/check || exit 1
 
 EXPOSE 3039
