@@ -23,7 +23,7 @@ dependencies {
     compile 'net.sf.saxon:Saxon-HE:9.6.0-10'
     compile 'com.google.guava:guava:24.0-jre'
     compile 'org.codehaus.woodstox:woodstox-core-asl:4.4.1'
-    compile 'com.opuscapita.peppol:peppol-commons:1.0.3'
+    compile 'com.opuscapita.peppol:peppol-commons:1.0.6'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.springframework.boot:spring-boot-starter-test:2.1.0.RELEASE'

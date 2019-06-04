@@ -138,7 +138,7 @@ public class ValidatorMessageConsumer implements ContainerMessageConsumer {
 
         cm.getHistory().addInfo("Validation completed successfully");
         logger.info("The message: " + cm.toKibana() + " successfully validated and delivered to " + queueOut + " queue");
-        eventReporter.reportStatus(cm);
+        // eventReporter.reportStatus(cm); DISABLED
         messageQueue.convertAndSend(queueOut, cm);
     }
 
