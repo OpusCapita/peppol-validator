@@ -16,6 +16,7 @@ RUN ./gradlew build || return 0
 FROM openjdk:8
 LABEL author="Ibrahim Bilge <Ibrahim.Bilge@opuscapita.com>"
 
+## setting heap size automatically to the container memory limits
 ENV JAVA_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1 -XshowSettings:vm"
 
 ENV APP_HOME=/usr/app/
