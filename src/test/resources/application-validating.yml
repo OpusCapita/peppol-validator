@@ -174,7 +174,7 @@ peppol:
         #   ####### PEPPOL_BIS 3 #######   #
         - id: 158
           description: "Peppol BIS v3 Invoice"
-          archetype: "PEPPOL_BIS"
+          archetype: "PEPPOL_BIS30"
           localName: "Invoice"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1"
           processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
@@ -189,7 +189,7 @@ peppol:
 
         - id: 160
           description: "Peppol BIS v3 CreditNote"
-          archetype: "PEPPOL_BIS"
+          archetype: "PEPPOL_BIS30"
           localName: "CreditNote"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1"
           processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
@@ -206,7 +206,7 @@ peppol:
 
         - id: 30003
           description: "Peppol BIS v3 Order"
-          archetype: "PEPPOL_BIS"
+          archetype: "PEPPOL_BIS30"
           localName: "Order"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1"
           processId: "urn:fdc:peppol.eu:poacc:bis:order_only:3"
@@ -218,7 +218,7 @@ peppol:
 
         - id: 30004
           description: "Peppol BIS v3 Order Response"
-          archetype: "PEPPOL_BIS"
+          archetype: "PEPPOL_BIS30"
           localName: "OrderResponse"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2::OrderResponse##urn:fdc:peppol.eu:poacc:trns:order_response:3::2.1"
           processId: "urn:fdc:peppol.eu:poacc:bis:ordering:3"
@@ -230,7 +230,7 @@ peppol:
 
         - id: 30005
           description: "Peppol BIS v3 Order Agreement"
-          archetype: "PEPPOL_BIS"
+          archetype: "PEPPOL_BIS30"
           localName: "OrderResponse"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2::OrderResponse##urn:fdc:peppol.eu:poacc:trns:order_agreement:3::2.1"
           processId: "urn:fdc:peppol.eu:poacc:bis:order_agreement:3"
@@ -242,7 +242,7 @@ peppol:
 
         - id: 30006
           description: "Peppol BIS v3 Catalogue"
-          archetype: "PEPPOL_BIS"
+          archetype: "PEPPOL_BIS30"
           localName: "Catalogue"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2::Catalogue##urn:fdc:peppol.eu:poacc:trns:catalogue:3::2.1"
           processId: "urn:fdc:peppol.eu:poacc:bis:catalogue_only:3"
@@ -254,7 +254,7 @@ peppol:
 
         - id: 30007
           description: "Peppol BIS v3 Catalogue Response"
-          archetype: "PEPPOL_BIS"
+          archetype: "PEPPOL_BIS30"
           localName: "ApplicationResponse"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:fdc:peppol.eu:poacc:trns:catalogue_response:3::2.1"
           processId: "urn:fdc:peppol.eu:poacc:bis:catalogue_only:3"
@@ -266,7 +266,7 @@ peppol:
 
         - id: 30008
           description: "Peppol BIS v3 Despatch Advice"
-          archetype: "PEPPOL_BIS"
+          archetype: "PEPPOL_BIS30"
           localName: "DespatchAdvice"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3::2.1"
           processId: "urn:fdc:peppol.eu:poacc:bis:despatch_advice:3"
@@ -278,7 +278,7 @@ peppol:
 
         - id: 30009
           description: "Peppol BIS v3 Punch Out"
-          archetype: "PEPPOL_BIS"
+          archetype: "PEPPOL_BIS30"
           localName: "Catalogue"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2::Catalogue##urn:fdc:peppol.eu:poacc:trns:punch_out:3::2.1"
           processId: "urn:fdc:peppol.eu:poacc:bis:punch_out:3"
@@ -290,7 +290,7 @@ peppol:
 
         - id: 30009
           description: "Peppol BIS v3 Message Level Response"
-          archetype: "PEPPOL_BIS"
+          archetype: "PEPPOL_BIS30"
           localName: "ApplicationResponse"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:fdc:peppol.eu:poacc:trns:mlr:3::2.1"
           processId: "urn:fdc:peppol.eu:poacc:bis:mlr:3"
@@ -302,7 +302,7 @@ peppol:
 
         - id: 30010
           description: "Peppol BIS v3 Invoice Response"
-          archetype: "PEPPOL_BIS"
+          archetype: "PEPPOL_BIS30"
           localName: "ApplicationResponse"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:fdc:peppol.eu:poacc:trns:invoice_response:3::2.1"
           processId: "urn:fdc:peppol.eu:poacc:bis:invoice_response:3"
