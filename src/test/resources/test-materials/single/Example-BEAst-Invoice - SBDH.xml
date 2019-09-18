@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardBusinessDocument xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+	<StandardBusinessDocumentHeader>
+		<HeaderVersion>1.0</HeaderVersion>
+		<Sender>
+			<Identifier Authority="iso6523-actorid-upis">0007:987654321</Identifier>
+		</Sender>
+		<Receiver>
+			<Identifier Authority="iso6523-actorid-upis">0007:987654321</Identifier>
+		</Receiver>
+		<DocumentIdentification>
+			<Standard>urn:beastinvoice:3.0.1</Standard>
+			<TypeVersion>3.0.1</TypeVersion>
+			<InstanceIdentifier>ef49c64b-decc-4c28-a3d0-96b62977ea8d</InstanceIdentifier>
+			<Type>Invoic</Type>
+			<CreationDateAndTime>2016-06-03T04:32:31.532978+03:00</CreationDateAndTime>
+		</DocumentIdentification>
+		<BusinessScope>
+			<Scope>
+				<Type>DOCUMENTID</Type>
+				<InstanceIdentifier>urn:beastinvoice:3.0.1::Invoic##::3.0.1</InstanceIdentifier>
+			</Scope>
+			<Scope>
+				<Type>PROCESSID</Type>
+				<InstanceIdentifier>urn:beast:supplyprocess</InstanceIdentifier>
+			</Scope>
+		</BusinessScope>
+	</StandardBusinessDocumentHeader>
+	<Invoic xmlns="urn:beastinvoice:3.0.1">
+	  <InvoicHeader>
+		<InvoiceTypeNeB>380</InvoiceTypeNeB>
+		<InvoiceNumber>9120546</InvoiceNumber>
+		<DocumentDate>2015-06-01T09:00:00Z</DocumentDate>
+		<ActualDeliveryDate>20150601</ActualDeliveryDate>
+		<DeliveryPeriodStartDate>20180924</DeliveryPeriodStartDate>
+		<DeliveryPeriodEndDate>20180924</DeliveryPeriodEndDate>
+		<DeliveryDateEarliest>2015-06-01T09:00:00Z</DeliveryDateEarliest>
+		<DeliveryDateLatest>2015-06-01T09:00:00Z</DeliveryDateLatest>
+		<RentalPeriodStartDate>2015-06-01T09:00:00Z</RentalPeriodStartDate>
+		<RentalPeriodEndDate>2015-06-01T09:00:00Z</RentalPeriodEndDate>
+		<ReasonForCreditingNeBType>79E</ReasonForCreditingNeBType>
+		<NatureTransaction>141</NatureTransaction>
+		<PersonalCode>8394</PersonalCode>
+		<Text>
+		  <DeliveryMarkInstruction>Leveranser mottages mellan 07.00 - 10.00</DeliveryMarkInstruction>
+		  <PartyInstruction>Fri text</PartyInstruction>
+		  <GeneralInformation>Företaget innehar F-skatt</GeneralInformation>
+		  <SupplierRemark>Nytt plusgironr 772064-9 gäller från 2009-05-01</SupplierRemark>
+		  <LanguageCode>SE</LanguageCode>
+		</Text>
+		<UrlLink>
+		  <LinkToCompanyWebPage>www.trakompaniet.se</LinkToCompanyWebPage>
+		  <LinkToRelatedDocument>http://www.foretaget.se/mina sidor/invoice/123456</LinkToRelatedDocument>
+		</UrlLink>
+		<ReferenceToDocument>
+		  <OrderNumber>2123456</OrderNumber>
+		  <ProjectNumber>6411-001</ProjectNumber>
+		  <ProjectName>Solrosgränd</ProjectName>
+		  <DespatchAdviceNumberNeb>454566</DespatchAdviceNumberNeb>
+		  <CustomerReferenceNumber>512345</CustomerReferenceNumber>
+		  <VendorOrderNumber>45462</VendorOrderNumber>
+		  <ReferenceToInvoice>913584</ReferenceToInvoice>
+		  <ReferenceToCreditNote>9125654</ReferenceToCreditNote>
+		  <PaymentReference>177301432023</PaymentReference>
+		  <OfferNumber>154625</OfferNumber>
+		  <OfferGUID>3A6F3B56-F70D-45D1-8EEE-10689F1D36EC</OfferGUID>
+		  <AccountNumber>3711</AccountNumber>
+		  <AccountGroupNumber>52</AccountGroupNumber>
+		  <ReferenceToAgreementOrContract>2012-012</ReferenceToAgreementOrContract>
+		  <UltimateCustomerReferenceNumber>5648054</UltimateCustomerReferenceNumber>
+		  <UltimateCustomerOrderNumber>5648054</UltimateCustomerOrderNumber>
+		  <ReferenceToDeliveryNote>4567</ReferenceToDeliveryNote>
+		  <AdditionalDocumentReference>
+			<DocumentTypeExternal>Ritning</DocumentTypeExternal>
+			<DocumentName>A1-440-1-030-AA-01</DocumentName>
+			<Attachment>
+			  <EmbeddedDocument>
+				<EmbeddedDocumentFileName>Tidrapport.pdf</EmbeddedDocumentFileName>
+				<EmbeddedDocumentBinaryObject></EmbeddedDocumentBinaryObject>
+			  </EmbeddedDocument>
+			  <ExternalReference>
+				<LinkToRelatedDocument>http://www.foretaget.se/mina sidor/invoice/123456</LinkToRelatedDocument>
+			  </ExternalReference>
+			</Attachment>
+		  </AdditionalDocumentReference>
+		</ReferenceToDocument>
+		<BuyerNeB>
+		  <Buyer>7381030000028</Buyer>
+		  <AddressNeB>
+			<PartyIdentifier>7651235</PartyIdentifier>
+			<PartyName>Bolagnamn AB</PartyName>
+			<Department>Administration</Department>
+			<StreetName>Tallvägen 45</StreetName>
+			<Building>A</Building>
+			<PostalBoxNumber>Box 12</PostalBoxNumber>
+			<CityName>Xstad</CityName>
+			<PostalCodeNeB>23192</PostalCodeNeB>
+			<CountryCode>SE</CountryCode>
+		  </AddressNeB>
+		  <BuyersContactNeB>
+			<Name>Karl Svensson</Name>
+			<PhoneNumber>+46410341234</PhoneNumber>
+			<EmailAddress>karl.svensson@skoogs.se</EmailAddress>
+			<ID06>2310-139652</ID06>
+		  </BuyersContactNeB>
+		  <TaxReference>
+			<BuyersVATRegistrationNumber>SE556481581801</BuyersVATRegistrationNumber>
+			<RegistrationNumber>5564538188</RegistrationNumber>
+			<FiscalNumber>8546251972</FiscalNumber>
+			<GovernmentReferenceNumber>5566583512</GovernmentReferenceNumber>
+			<TaxRegistrationNumber>SE556453818801</TaxRegistrationNumber>
+		  </TaxReference>
+		</BuyerNeB>
+		<SupplierNeB>
+		  <Supplier>7381030000032</Supplier>
+		  <AddressNeB>
+			<PartyIdentifier>7652344</PartyIdentifier>
+			<PartyName>Bolagnamn AB</PartyName>
+			<Department>Administration</Department>
+			<StreetName>Björkstigen 10</StreetName>
+			<PostalBoxNumber>Box456</PostalBoxNumber>
+			<CityName>Ystad</CityName>
+			<PostalCodeNeB>12359</PostalCodeNeB>
+			<CountryCode>SE</CountryCode>
+		  </AddressNeB>
+		  <SuppliersContact>
+			<Name>Lars Larsson</Name>
+			<PhoneNumber>+4687681590</PhoneNumber>
+			<EmailAddress>lars.larsson@trakompaniet.se</EmailAddress>
+		  </SuppliersContact>
+		  <SuppliersFinancialInformation>
+			<SupplierBankgiroNumber>5110-1234</SupplierBankgiroNumber>
+			<SupplierPlusgiroNumber>413 13 45-6</SupplierPlusgiroNumber>
+			<SupplierIBANNumber>SE74 9500 1099 8042 3840 7679</SupplierIBANNumber>
+			<SuppliersBICCode>NEAABCDD</SuppliersBICCode>
+		  </SuppliersFinancialInformation>
+		  <TaxReference>
+			<SuppliersVATRegistrationNumber>SE556481581801</SuppliersVATRegistrationNumber>
+			<RegistrationNumber>5564538188</RegistrationNumber>
+			<FiscalNumber>8546251972</FiscalNumber>
+			<GovernmentReferenceNumber>5566583512</GovernmentReferenceNumber>
+			<TaxRegistrationNumber>SE556453818801</TaxRegistrationNumber>
+		  </TaxReference>
+		</SupplierNeB>
+		<SupplierAsOfficiallyRegistred>
+		  <Supplier>7381030000032</Supplier>
+		  <SuppliersCompanyOfficiallyPlace>Stockholm</SuppliersCompanyOfficiallyPlace>
+		  <SuppliersCompanyRegistrationNumber>5564538188</SuppliersCompanyRegistrationNumber>
+		  <AddressNeB>
+			<PartyIdentifier>7652344</PartyIdentifier>
+			<PartyName>Bolagnamn AB</PartyName>
+		  </AddressNeB>
+		</SupplierAsOfficiallyRegistred>
+		<DeliveryNeB>
+		  <DeliveryParty>7381050000041</DeliveryParty>
+		  <DeliveryPlaceLocation>Xstad</DeliveryPlaceLocation>
+		  <AddressNeB>
+			<PartyIdentifier>7228798</PartyIdentifier>
+			<PartyName>Bolagnamn AB</PartyName>
+			<Department>Administration</Department>
+			<StreetName>Tallvägen</StreetName>
+			<Building>Hall A</Building>
+			<PostalBoxNumber>1</PostalBoxNumber>
+			<CityName>Xstad</CityName>
+			<PostalCodeNeB>23192</PostalCodeNeB>
+			<CountryCode>SE</CountryCode>
+		  </AddressNeB>
+		  <DeliveryContact>
+			<Name>Karla Svensson</Name>
+			<PhoneNumber>+4687652220</PhoneNumber>
+			<EmailAddress>karla@skoogs.se</EmailAddress>
+		  </DeliveryContact>
+		</DeliveryNeB>
+		<ConsigneeNeB>
+		  <Consignee>7381030000035</Consignee>
+		  <AddressNeB>
+			<PartyIdentifier>7654567</PartyIdentifier>
+			<PartyName>Bolagnamn AB</PartyName>
+			<StreetName>Filialvägen 21</StreetName>
+			<PostalBoxNumber>1</PostalBoxNumber>
+			<CityName>Tstad</CityName>
+			<PostalCodeNeB>23219</PostalCodeNeB>
+			<CountryCode>SE</CountryCode>
+		  </AddressNeB>
+		  <ConsigneesContact>
+			<Name>Lena Nilsson</Name>
+			<PhoneNumber>+4682251590</PhoneNumber>
+			<EmailAddress>lena@tpllogistik</EmailAddress>
+		  </ConsigneesContact>
+		</ConsigneeNeB>
+		<InvoiceeNeB>
+		  <Invoicee>7381030000067</Invoicee>
+		  <AddressNeB>
+			<PartyIdentifier>7655678</PartyIdentifier>
+			<PartyName>Bolagnamn AB</PartyName>
+			<Department>Administration</Department>
+			<StreetName>Fakturavägen 1</StreetName>
+			<PostalBoxNumber>1</PostalBoxNumber>
+			<CityName>Fstad</CityName>
+			<PostalCodeNeB>42159</PostalCodeNeB>
+			<CountryCode>SE</CountryCode>
+		  </AddressNeB>
+		  <InvoiceesContact>
+			<Name>Eva Svensson</Name>
+			<PhoneNumber>+4681901590</PhoneNumber>
+			<EmailAddress>eva@factoring.se</EmailAddress>
+		  </InvoiceesContact>
+		  <TaxReference>
+			<InvoiceeVATRegistrationNumber>SE556048581801</InvoiceeVATRegistrationNumber>
+			<RegistrationNumber>5564538188</RegistrationNumber>
+			<FiscalNumber>8546251972</FiscalNumber>
+			<GovernmentReferenceNumber>5566583512</GovernmentReferenceNumber>
+			<TaxRegistrationNumber>SE556453818801</TaxRegistrationNumber>
+		  </TaxReference>
+		</InvoiceeNeB>
+		<InvoiceIssuerNeB>
+		  <InvoiceIssuer>7381030000018</InvoiceIssuer>
+		  <AddressNeB>
+			<PartyIdentifier>7658912</PartyIdentifier>
+			<PartyName>Bolagnamn AB</PartyName>
+			<Department>Administration</Department>
+			<StreetName>Debetvägen 1</StreetName>
+			<PostalBoxNumber>1</PostalBoxNumber>
+			<CityName>Estad</CityName>
+			<PostalCodeNeB>12345</PostalCodeNeB>
+			<CountryCode>SE</CountryCode>
+		  </AddressNeB>
+		  <InvoiceIssuerContact>
+			<Name>Svea Svensson</Name>
+			<PhoneNumber>+4687901234</PhoneNumber>
+			<EmailAddress>svea@ekonomitjanst.se</EmailAddress>
+		  </InvoiceIssuerContact>
+		  <TaxReference>
+			<InvoiceIssuerVATRegistrationNumber>SE558158581801</InvoiceIssuerVATRegistrationNumber>
+			<RegistrationNumber>5564538188</RegistrationNumber>
+			<FiscalNumber>8546251972</FiscalNumber>
+			<GovernmentReferenceNumber>5566583512</GovernmentReferenceNumber>
+			<TaxRegistrationNumber>SE556453818801</TaxRegistrationNumber>
+		  </TaxReference>
+		</InvoiceIssuerNeB>
+		<PayeeNeB>
+		  <Payee>7381030000076</Payee>
+		  <AddressNeB>
+			<PartyIdentifier>7652345</PartyIdentifier>
+			<PartyName>Bolagnamn AB</PartyName>
+			<Department>Administration</Department>
+			<StreetName>Björkstigen 10</StreetName>
+			<PostalBoxNumber>Box 456</PostalBoxNumber>
+			<CityName>Svedala</CityName>
+			<PostalCodeNeB>23192</PostalCodeNeB>
+			<CountryCode>SE</CountryCode>
+		  </AddressNeB>
+		  <PayeeContact>
+			<Name>Lisa Svensson</Name>
+			<PhoneNumber>+4640123467</PhoneNumber>
+			<EmailAddress>lisa.svensson@trakompaniet.se</EmailAddress>
+		  </PayeeContact>
+		  <PayeeFinancialInformation>
+			<PayeesBankgiroNumber>1234-1234</PayeesBankgiroNumber>
+			<PayeesPlusgiroNumber>772064-2</PayeesPlusgiroNumber>
+			<PayeeIBANNumber>SE74 9500 1099 8042 3840 7679</PayeeIBANNumber>
+			<PayeeBICCode>NEAABCDD</PayeeBICCode>
+		  </PayeeFinancialInformation>
+		</PayeeNeB>
+		<ShipFromNeB>
+		  <Shipper>7381030000099</Shipper>
+		  <Address_NeB>
+			<PartyIdentifier>7666558</PartyIdentifier>
+			<PartyName>Bolagnamn AB</PartyName>
+			<Department>Administration</Department>
+			<StreetName>Strandgatan 12</StreetName>
+			<Building>C</Building>
+			<CityName>Sölvesborg</CityName>
+			<PostalCodeNeB>25922</PostalCodeNeB>
+			<CountryCode>SE</CountryCode>
+		  </Address_NeB>
+		  <ShipFromContact>
+			<Name>Ola Norman</Name>
+			<EmailAddress>ola.norman@plast.se</EmailAddress>
+		  </ShipFromContact>
+		</ShipFromNeB>
+		<PartyDeclaringVATNeB>
+		  <PartyDeclaringVAT>7381030000077</PartyDeclaringVAT>
+		  <AddressNeB>
+			<PartyIdentifier>7651111</PartyIdentifier>
+			<PartyName>Bolagnamn AB</PartyName>
+			<StreetName>Karenslyst Alle 56</StreetName>
+			<PostalBoxNumber>Postboks 733, Skøyen</PostalBoxNumber>
+			<CityName>Ullevål</CityName>
+			<PostalCodeNeB>23192</PostalCodeNeB>
+			<CountryCode>NO</CountryCode>
+		  </AddressNeB>
+		  <TaxReference>
+			<PartyDeclaringVATsVATRegistrationNumber>983 833 719 MVA</PartyDeclaringVATsVATRegistrationNumber>
+			<RegistrationNumber>5564538188</RegistrationNumber>
+			<FiscalNumber>8546251972</FiscalNumber>
+			<GovernmentReferenceNumber>5566583512</GovernmentReferenceNumber>
+			<TaxRegistrationNumber>SE556453818801</TaxRegistrationNumber>
+		  </TaxReference>
+		</PartyDeclaringVATNeB>
+		<Tax>
+		  <TaxBaseTypeNeB>VAT</TaxBaseTypeNeB>
+		  <TaxCategoryNeBType>S</TaxCategoryNeBType>
+		  <ExemtionReasonTextNeB>NA</ExemtionReasonTextNeB>
+		  <VATRate>25</VATRate>
+		</Tax>
+		<InvoiceCurrency>
+		  <Currency>
+			<RateOfExchange>10.45</RateOfExchange>
+			<ReferenceCurrency>SEK</ReferenceCurrency>
+			<InvoicingCurrency>SEK</InvoicingCurrency>
+			<TargetCurrency>EUR</TargetCurrency>
+			<HomeCurrency>SEK</HomeCurrency>
+			<PaymentCurrency>EUR</PaymentCurrency>
+			<ExchangeRateDate>2015-06-01T09:00:00Z</ExchangeRateDate>
+		  </Currency>
+		</InvoiceCurrency>
+		<PaymentInstruction>
+		  <TermsDiscountDueDate-time>2015-06-01T09:00:00Z</TermsDiscountDueDate-time>
+		  <PaymentTermsGroup>
+			<TermsNetDueDate>2015-06-01T09:00:00Z</TermsNetDueDate>
+			<PaymentTermsDescription>30 dagar netto</PaymentTermsDescription>
+			<PaymentDays>30</PaymentDays>
+		  </PaymentTermsGroup>
+		  <PaymentPenaltyGroup>
+			<PaymentPenaltyPercentage>15</PaymentPenaltyPercentage>
+			<PaymentPenaltyDescription>Vid betalning efter förfallodag debiteras dröjsmålsränta med referensränta + 8 %</PaymentPenaltyDescription>
+		  </PaymentPenaltyGroup>
+		</PaymentInstruction>
+		<DeliveryOrTransportTerms>
+		  <DeliveryFunctionCode>6</DeliveryFunctionCode>
+		  <TermsOfDeliveryNeB>EXW</TermsOfDeliveryNeB>
+		  <IncotermsVersion>Z10</IncotermsVersion>
+		  <DeliveryPlaceTerms>Ystad</DeliveryPlaceTerms>
+		</DeliveryOrTransportTerms>
+		<Allowance>
+		  <SpecialServiceDescritionCode>DI</SpecialServiceDescritionCode>
+		  <SpecialServiceDescription>Extra rabatt</SpecialServiceDescription>
+		  <Percentage>3.000</Percentage>
+		  <BaseAmount>35.00</BaseAmount>
+		  <AmountNeB>60</AmountNeB>
+		  <Tax>
+			<TaxBaseTypeNeB>VAT</TaxBaseTypeNeB>
+			<TaxCategoryNeBType>S</TaxCategoryNeBType>
+			<VATRate>25</VATRate>
+			<TaxAmount>3725.00</TaxAmount>
+		  </Tax>
+		</Allowance>
+		<Charge>
+		  <SpecialServiceDescritionCode>FC</SpecialServiceDescritionCode>
+		  <SpecialServiceDescription>Frakt inkl. broavgift</SpecialServiceDescription>
+		  <Percentage>3.000</Percentage>
+		  <BaseAmount>35.00</BaseAmount>
+		  <Tax>
+			<TaxBaseTypeNeB>VAT</TaxBaseTypeNeB>
+			<TaxCategoryNeBType>S</TaxCategoryNeBType>
+			<VATRate>25</VATRate>
+			<TaxAmount>3725.00</TaxAmount>
+		  </Tax>
+		</Charge>
+	  </InvoicHeader>
+	  <InvoicLine>
+		<LineNumber>0001</LineNumber>
+		<ActualDeliveryDate>20150601</ActualDeliveryDate>
+		<DeliveryPeriodStartDate>20180924</DeliveryPeriodStartDate>
+		<DeliveryPeriodEndDate>20180924</DeliveryPeriodEndDate>
+		<DeliveryDateEarliest>2015-06-01T09:00:00Z</DeliveryDateEarliest>
+		<DeliveryDateLatest>2015-06-01T09:00:00Z</DeliveryDateLatest>
+		<RentalPeriodStartDate>2015-06-01T09:00:00Z</RentalPeriodStartDate>
+		<RentalPeriodEndDate>2015-06-01T09:00:00Z</RentalPeriodEndDate>
+		<CountryOfOrigin>SWE</CountryOfOrigin>
+		<ReasonForCreditingNeBType>79E</ReasonForCreditingNeBType>
+		<NatureTransaction>141</NatureTransaction>
+		<LineItemGrossAmount>3320</LineItemGrossAmount>
+		<LineItemNetAmount>2656.00</LineItemNetAmount>
+		<ArticleIdentifiers>
+		  <GlobalTradeItemNumber>12345678910111</GlobalTradeItemNumber>
+		  <SuppliersArticleNumber>10038-00</SuppliersArticleNumber>
+		  <BuyersPartArticleNumber>45001</BuyersPartArticleNumber>
+		  <NOBBArticleNumber>23717986</NOBBArticleNumber>
+		  <RTArticleNumber>371829</RTArticleNumber>
+		  <TUNArticleNumber>654258971</TUNArticleNumber>
+		  <FinfoVilmaArticleNumber>002552559</FinfoVilmaArticleNumber>
+		  <RSKArticleNumberNorwegian>123456789</RSKArticleNumberNorwegian>
+		  <RSKArticleNumberSweden>5651112</RSKArticleNumberSweden>
+		  <EnumberNorwegian>46552358</EnumberNorwegian>
+		  <ENumber>32314568</ENumber>
+		  <SGTIN>0614141112345400</SGTIN>
+		  <UNSPSC>18040010</UNSPSC>
+		  <HarmonizedSystemCode>112233</HarmonizedSystemCode>
+		  <ArticleDescription>Forrest diesel mix</ArticleDescription>
+		  <PackageLevelType>TU</PackageLevelType>
+		  <ConfigurationValue>#-400-300-1250-2010-0-0-0-2-2-GALV-0.7-1-1-0-V017552</ConfigurationValue>
+		  <VilmaBK04IndustryStatistics>12345</VilmaBK04IndustryStatistics>
+		</ArticleIdentifiers>
+		<Quantities>
+		  <InvoicedQuantityNeB>
+			<InvoicedQuantity>10</InvoicedQuantity>
+			<MeasureUnitNeBType>EA</MeasureUnitNeBType>
+		  </InvoicedQuantityNeB>
+		  <DeliveredQuantityNeB>
+			<DeliveredQuantity>14.5000</DeliveredQuantity>
+			<MeasureUnitNeBType>EA</MeasureUnitNeBType>
+		  </DeliveredQuantityNeB>
+		  <RentalQuantity>
+			<RentalTimeQuantity>22</RentalTimeQuantity>
+			<RentalQuantityCode>02</RentalQuantityCode>
+			<RentalQuantityShiftCode>10</RentalQuantityShiftCode>
+		  </RentalQuantity>
+		</Quantities>
+		<Text>
+		  <LineItemInformation>Obs Röda hantag</LineItemInformation>
+		  <ProductInformation>Utökad garanti</ProductInformation>
+		  <GoodsDescription>Pumpar</GoodsDescription>
+		  <LanguageCode>SE</LanguageCode>
+		</Text>
+		<GoodsIdentityNumber>
+		  <SerialNumber>7272635494005181726</SerialNumber>
+		  <VehicleIdentityNumber>XML123</VehicleIdentityNumber>
+		</GoodsIdentityNumber>
+		<PriceNeb>
+		  <PriceAmount>150.00</PriceAmount>
+		  <PriceCode>AAA</PriceCode>
+		  <PriceTypeCode>CA</PriceTypeCode>
+		  <PriceSpecificationCode>Z01</PriceSpecificationCode>
+		  <PriceUnitBasisQuantity>1</PriceUnitBasisQuantity>
+		  <MeasureUnitNeBType>EA</MeasureUnitNeBType>
+		</PriceNeb>
+		<ReferenceToDocument>
+		  <OrderNumber>2123456</OrderNumber>
+		  <ReferenceToOrderLine>05</ReferenceToOrderLine>
+		  <ProjectNumber>6411-001</ProjectNumber>
+		  <DespatchAdviceNumberNeb>454566</DespatchAdviceNumberNeb>
+		  <CustomerReferenceNumber>512345</CustomerReferenceNumber>
+		  <VendorOrderNumber>45462</VendorOrderNumber>
+		  <ReferenceToInvoice>913584</ReferenceToInvoice>
+		  <ReferenceToCreditNote>9125654</ReferenceToCreditNote>
+		  <OfferNumber>154625</OfferNumber>
+		  <OfferLineGUID>1C643980-1F22-4259-B550-3CC421FED578</OfferLineGUID>
+		  <AccountNumber>3711</AccountNumber>
+		  <AccountGroupNumber>52</AccountGroupNumber>
+		  <ReferenceToAgreementOrContract>2012-012</ReferenceToAgreementOrContract>
+		  <UltimateCustomerReferenceNumber>5648054</UltimateCustomerReferenceNumber>
+		  <UltimateCustomerOrderNumber>5648054</UltimateCustomerOrderNumber>
+		  <MaterialTicketReference>381728</MaterialTicketReference>
+		  <FreightForwarderReferensNumber>177301432023</FreightForwarderReferensNumber>
+		  <OrderReceiptReference>456456</OrderReceiptReference>
+		  <ReferenceToOrderReceiptLine>0001</ReferenceToOrderReceiptLine>
+		  <AdditionalDocumentReference>
+			<DocumentTypeExternal>Ritning</DocumentTypeExternal>
+			<DocumentName>A1-440-1-030-AA-01</DocumentName>
+			<Attachment>
+			  <EmbeddedDocument>
+				<EmbeddedDocumentFileName>Tidrapport.pdf</EmbeddedDocumentFileName>
+				<EmbeddedDocumentBinaryObject></EmbeddedDocumentBinaryObject>
+			  </EmbeddedDocument>
+			  <ExternalReference>
+				<LinkToRelatedDocument>http://www.foretaget.se/mina sidor/invoice/123456</LinkToRelatedDocument>
+			  </ExternalReference>
+			</Attachment>
+		  </AdditionalDocumentReference>
+		  <ReferenceToCertificateForWoodProducts>
+			<TypeOfCertificate>PEFC</TypeOfCertificate>
+			<CertificateNumber>SE0003440-1</CertificateNumber>
+			<PercentageCertified>100</PercentageCertified>
+		  </ReferenceToCertificateForWoodProducts>
+		</ReferenceToDocument>
+		<BuyerNeB>
+		  <BuyersContactNeB>
+			<Name>Karl Svensson</Name>
+			<PhoneNumber>+46410341234</PhoneNumber>
+			<EmailAddress>karl.svensson@skoogs.se</EmailAddress>
+			<ID06>2310-139652</ID06>
+		  </BuyersContactNeB>
+		</BuyerNeB>
+		<Tax>
+		  <TaxBaseTypeNeB>VAT</TaxBaseTypeNeB>
+		  <TaxCategoryNeBType>S</TaxCategoryNeBType>
+		  <VATRate>25</VATRate>
+		  <TaxAmount>3725.00</TaxAmount>
+		</Tax>
+		<ShipFromNeB>
+		  <Shipper>7381030000099</Shipper>
+		  <Address_NeB>
+			<PartyIdentifier>7666558</PartyIdentifier>
+			<PartyName>Bolagnamn AB</PartyName>
+			<StreetName>Strandgatan 12</StreetName>
+			<Building>C</Building>
+			<CityName>Sölvesborg</CityName>
+			<PostalCodeNeB>25922</PostalCodeNeB>
+			<CountryCode>SE</CountryCode>
+		  </Address_NeB>
+		  <ShipFromContact>
+			<Name>Ola Norman</Name>
+			<PhoneNumber>+4681234567</PhoneNumber>
+			<EmailAddress>ola.norman@plast.se</EmailAddress>
+		  </ShipFromContact>
+		</ShipFromNeB>
+		<ShipToNeB>
+		  <ShipTo>7381030000035</ShipTo>
+		  <AddressNeB>
+			<PartyIdentifier>7651235</PartyIdentifier>
+			<PartyName>Bolagnamn AB</PartyName>
+			<StreetName>Filialvägen 21</StreetName>
+			<Building>A</Building>
+			<CityName>Tstad</CityName>
+			<PostalCodeNeB>12567</PostalCodeNeB>
+			<CountryCode>SE</CountryCode>
+		  </AddressNeB>
+		  <ShipToContact>
+			<Name>Karl Svensson</Name>
+			<PhoneNumber>08-7851590</PhoneNumber>
+			<EmailAddress>karl.svensson@skoogs.se</EmailAddress>
+		  </ShipToContact>
+		</ShipToNeB>
+		<Measurments>
+		  <MeasuredPurposeCode>WT</MeasuredPurposeCode>
+		  <MeasuredAttributeCode>AAD</MeasuredAttributeCode>
+		  <Measure>1420</Measure>
+		  <MeasureUnitNeBType>ANN</MeasureUnitNeBType>
+		</Measurments>
+		<FreightInfo>
+		  <EnvironmentClass>Euro 5</EnvironmentClass>
+		  <DriversNumber>7312107714</DriversNumber>
+		</FreightInfo>
+		<Allowance>
+		  <SpecialServiceDescritionCode>DI</SpecialServiceDescritionCode>
+		  <SpecialServiceDescription>Extra rabatt</SpecialServiceDescription>
+		  <StepCalculation>1</StepCalculation>
+		  <Percentage>3.000</Percentage>
+		  <BaseAmount>35.00</BaseAmount>
+		  <AmountNeB>60</AmountNeB>
+		  <QuantityNeB>50</QuantityNeB>
+		  <RatePerUnit>2.500</RatePerUnit>
+		  <MeasureUnitNeBType>ANN</MeasureUnitNeBType>
+		  <Tax>
+			<TaxBaseTypeNeB>VAT</TaxBaseTypeNeB>
+			<TaxCategoryNeBType>S</TaxCategoryNeBType>
+			<ExemtionReasonTextNeB>NA</ExemtionReasonTextNeB>
+			<VATRate>25</VATRate>
+			<TaxAmount>3725.00</TaxAmount>
+		  </Tax>
+		</Allowance>
+		<Charge>
+		  <SpecialServiceDescritionCode>FC</SpecialServiceDescritionCode>
+		  <SpecialServiceDescription>Frakt inkl. broavgift</SpecialServiceDescription>
+		  <Percentage>3.000</Percentage>
+		  <BaseAmount>35.00</BaseAmount>
+		  <AmountNeB>50</AmountNeB>
+		  <RatePerUnit>2.500</RatePerUnit>
+		  <MeasureUnitNeBType>ANN</MeasureUnitNeBType>
+		  <Tax>
+			<TaxBaseTypeNeB>VAT</TaxBaseTypeNeB>
+			<TaxCategoryNeBType>S</TaxCategoryNeBType>
+			<ExemtionReasonTextNeB>NA</ExemtionReasonTextNeB>
+			<VATRate>25</VATRate>
+			<TaxAmount>3725.00</TaxAmount>
+		  </Tax>
+		</Charge>
+		<PackageTypeGroup>
+		  <PackageTypeNeB>PX</PackageTypeNeB>
+		  <NumberOfPackages>2</NumberOfPackages>
+		  <GoodsDescription>Pumpar</GoodsDescription>
+		</PackageTypeGroup>
+		<DeliveryOrTransportTerms>
+		  <DeliveryFunctionCode>6</DeliveryFunctionCode>
+		</DeliveryOrTransportTerms>
+	  </InvoicLine>
+	  <InvoicTrailer>
+		<ControlTotal-NumberOfLines>5</ControlTotal-NumberOfLines>
+		<LineItemTotal>14800.00</LineItemTotal>
+		<TotalAllowanceAndChargeAmountFromHeader>10</TotalAllowanceAndChargeAmountFromHeader>
+		<TotalTaxableAmount>14900.00</TotalTaxableAmount>
+		<TotalTaxes>3724.55</TotalTaxes>
+		<RoundingOff>.45</RoundingOff>
+		<AmountDue>18625.00</AmountDue>
+		<NonTaxableAmount>3756.00</NonTaxableAmount>
+		<ExemptionAmount>3546.00</ExemptionAmount>
+		<Tax>
+		  <TaxBaseTypeNeB>VAT</TaxBaseTypeNeB>
+		  <TaxCategoryNeBType>S</TaxCategoryNeBType>
+		  <ExemtionReasonTextNeB>NA</ExemtionReasonTextNeB>
+		  <VATRate>25</VATRate>
+		  <TaxAmount>3725.00</TaxAmount>
+		  <TaxableAmount>14900.00</TaxableAmount>
+		  <VATAmountInVATCurrency>3725.00</VATAmountInVATCurrency>
+		</Tax>
+	  </InvoicTrailer>
+	</Invoic>
+</StandardBusinessDocument>
