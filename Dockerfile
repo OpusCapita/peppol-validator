@@ -13,7 +13,7 @@ RUN chmod +x ./gradlew
 RUN ./gradlew build || return 0
 
 ## actual container
-FROM openjdk:8-jre-stretch
+FROM openjdk:8
 LABEL author="Ibrahim Bilge <Ibrahim.Bilge@opuscapita.com>"
 
 ## setting heap size automatically to the container memory limits
@@ -30,7 +30,7 @@ RUN unzip -q rules.zip
 COPY --from=TEMP_BUILD_IMAGE $APP_HOME/build/libs/peppol-validator.jar .
 
 HEALTHCHECK --interval=15s --timeout=30s --start-period=40s --retries=15 \
-  CMD wget --quiet --tries=1 --spider http://localhost:3039/api/health/check || exit 1
+  CMD curl --silent --fail http://localhost:3039/api/health/check || exit 1
 
 EXPOSE 3039
 ENTRYPOINT exec java $JAVA_OPTS -jar peppol-validator.jar
