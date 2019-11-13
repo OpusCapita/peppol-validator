@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ApplicationResponse xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                     xmlns:cec="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+                     xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                     xmlns="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2">
+    <cbc:ID>7381838-MLR</cbc:ID>
+    <cbc:IssueDate>2019-09-23</cbc:IssueDate>
+    <cbc:ResponseDate>2019-09-23</cbc:ResponseDate>
+    <cbc:ResponseTime>12:05:36</cbc:ResponseTime>
+    <cbc:Note>ubl-3ec0b35c-ddfa-11e9-869d-e7832962770a</cbc:Note>
+    <cac:SenderParty>
+        <cbc:EndpointID>9908:917805717</cbc:EndpointID>
+        <cac:PartyName>
+            <cbc:Name>Møller Bil Skadesenter Ryen</cbc:Name>
+        </cac:PartyName>
+    </cac:SenderParty>
+    <cac:ReceiverParty>
+        <cbc:EndpointID>9908:986897526</cbc:EndpointID>
+        <cac:PartyName>
+            <cbc:Name>HAALAND KLIMA AS</cbc:Name>
+        </cac:PartyName>
+    </cac:ReceiverParty>
+    <cac:DocumentResponse>
+        <cac:Response>
+            <cbc:ResponseCode>AB</cbc:ResponseCode>
+            <cbc:Description>VALIDATION_ERROR</cbc:Description>
+        </cac:Response>
+        <cac:DocumentReference>
+            <cbc:ID>BEL82F5085EDDF811E9A873474B00CB2D31</cbc:ID>
+        </cac:DocumentReference>
+        <cac:LineResponse>
+            <cac:LineReference>
+                <cbc:LineID>NA</cbc:LineID>
+                <cac:DocumentReference>
+                    <cbc:ID>7381838</cbc:ID>
+                    <cbc:XPath>
+                        /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]
+                    </cbc:XPath>
+                </cac:DocumentReference>
+            </cac:LineReference>
+            <cac:Response>
+                <cbc:ReferenceID>BII2-T14-R058</cbc:ReferenceID>
+                <cbc:Description>((cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID =
+                    'VAT']/cbc:TaxAmount) and (round(xs:decimal(sum(cac:TaxTotal//cac:TaxSubtotal/cbc:TaxableAmount))
+                    *10 * 10) div 100 = ((xs:decimal(cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount))))) or
+                    not((cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT'])) [fatal] at
+                    /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]
+                    (BII2-T14-R058); [BII2-T14-R058]-Credit Note total without VAT MUST be equal to the sum of VAT
+                    category taxable amounts
+                </cbc:Description>
+                <cac:Status>
+                    <cbc:StatusReasonCode>RVF</cbc:StatusReasonCode>
+                </cac:Status>
+            </cac:Response>
+        </cac:LineResponse>
+        <cac:LineResponse>
+            <cac:LineReference>
+                <cbc:LineID>NA</cbc:LineID>
+                <cac:DocumentReference>
+                    <cbc:ID>7381838</cbc:ID>
+                    <cbc:XPath>
+                        /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:LegalMonetaryTotal[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][1]
+                    </cbc:XPath>
+                </cac:DocumentReference>
+            </cac:LineReference>
+            <cac:Response>
+                <cbc:ReferenceID>BII2-T14-R051</cbc:ReferenceID>
+                <cbc:Description>(xs:decimal(cbc:LineExtensionAmount)) =
+                    (round(sum((//cac:CreditNoteLine/xs:decimal(cbc:LineExtensionAmount))) * 10 * 10) div 100) [fatal]
+                    at
+                    /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:LegalMonetaryTotal[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][1]
+                    (BII2-T14-R051); [BII2-T14-R051]-Sum of line amounts MUST equal the credit note line net amounts
+                </cbc:Description>
+                <cac:Status>
+                    <cbc:StatusReasonCode>RVF</cbc:StatusReasonCode>
+                </cac:Status>
+            </cac:Response>
+        </cac:LineResponse>
+        <cac:LineResponse>
+            <cac:LineReference>
+                <cbc:LineID>NA</cbc:LineID>
+                <cac:DocumentReference>
+                    <cbc:ID>7381838</cbc:ID>
+                    <cbc:XPath>
+                        /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:TaxTotal[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][1]
+                    </cbc:XPath>
+                </cac:DocumentReference>
+            </cac:LineReference>
+            <cac:Response>
+                <cbc:ReferenceID>EUGEN-T14-R043</cbc:ReferenceID>
+                <cbc:Description>(xs:decimal(child::cbc:TaxAmount)=
+                    round(number(xs:decimal(sum(cac:TaxSubtotal/cbc:TaxAmount)) * 10 * 10)) div 100) [fatal] at
+                    /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:TaxTotal[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][1]
+                    (EUGEN-T14-R043); [EUGEN-T14-R043]-The total tax amount MUST equal the sum of tax amounts per
+                    category.
+                </cbc:Description>
+                <cac:Status>
+                    <cbc:StatusReasonCode>RVF</cbc:StatusReasonCode>
+                </cac:Status>
+            </cac:Response>
+        </cac:LineResponse>
+        <cac:LineResponse>
+            <cac:LineReference>
+                <cbc:LineID>NA</cbc:LineID>
+                <cac:DocumentReference>
+                    <cbc:ID>7381838</cbc:ID>
+                    <cbc:XPath>
+                        /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:CreditNoteLine[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][2]
+                    </cbc:XPath>
+                </cac:DocumentReference>
+            </cac:LineReference>
+            <cac:Response>
+                <cbc:ReferenceID>NONAT-T14-R030</cbc:ReferenceID>
+                <cbc:Description>not(cac:Item/cac:ClassifiedTaxCategory/cbc:Percent) or (some $cat in $taxCategories
+                    satisfies $cat = $category) [fatal] at
+                    /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:CreditNoteLine[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][2]
+                    (NONAT-T14-R030); [NONAT-T14-R030]-Tax category on line level MUST match provided tax categories on
+                    document level.
+                </cbc:Description>
+                <cac:Status>
+                    <cbc:StatusReasonCode>RVF</cbc:StatusReasonCode>
+                </cac:Status>
+            </cac:Response>
+        </cac:LineResponse>
+        <cac:LineResponse>
+            <cac:LineReference>
+                <cbc:LineID>NA</cbc:LineID>
+                <cac:DocumentReference>
+                    <cbc:ID>7381838</cbc:ID>
+                    <cbc:XPath>
+                        /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:CreditNoteLine[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][3]
+                    </cbc:XPath>
+                </cac:DocumentReference>
+            </cac:LineReference>
+            <cac:Response>
+                <cbc:ReferenceID>NONAT-T14-R030</cbc:ReferenceID>
+                <cbc:Description>not(cac:Item/cac:ClassifiedTaxCategory/cbc:Percent) or (some $cat in $taxCategories
+                    satisfies $cat = $category) [fatal] at
+                    /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:CreditNoteLine[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][3]
+                    (NONAT-T14-R030); [NONAT-T14-R030]-Tax category on line level MUST match provided tax categories on
+                    document level.
+                </cbc:Description>
+                <cac:Status>
+                    <cbc:StatusReasonCode>RVF</cbc:StatusReasonCode>
+                </cac:Status>
+            </cac:Response>
+        </cac:LineResponse>
+        <cac:LineResponse>
+            <cac:LineReference>
+                <cbc:LineID>NA</cbc:LineID>
+                <cac:DocumentReference>
+                    <cbc:ID>7381838</cbc:ID>
+                    <cbc:XPath>
+                        /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:CreditNoteLine[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][4]
+                    </cbc:XPath>
+                </cac:DocumentReference>
+            </cac:LineReference>
+            <cac:Response>
+                <cbc:ReferenceID>NONAT-T14-R030</cbc:ReferenceID>
+                <cbc:Description>not(cac:Item/cac:ClassifiedTaxCategory/cbc:Percent) or (some $cat in $taxCategories
+                    satisfies $cat = $category) [fatal] at
+                    /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:CreditNoteLine[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][4]
+                    (NONAT-T14-R030); [NONAT-T14-R030]-Tax category on line level MUST match provided tax categories on
+                    document level.
+                </cbc:Description>
+                <cac:Status>
+                    <cbc:StatusReasonCode>RVF</cbc:StatusReasonCode>
+                </cac:Status>
+            </cac:Response>
+        </cac:LineResponse>
+        <cac:LineResponse>
+            <cac:LineReference>
+                <cbc:LineID>NA</cbc:LineID>
+                <cac:DocumentReference>
+                    <cbc:ID>7381838</cbc:ID>
+                    <cbc:XPath>
+                        /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:TaxTotal[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][1]/*:TaxSubtotal[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][1]
+                    </cbc:XPath>
+                </cac:DocumentReference>
+            </cac:LineReference>
+            <cac:Response>
+                <cbc:ReferenceID>NONAT-T14-R029</cbc:ReferenceID>
+                <cbc:Description>xs:decimal(cbc:TaxableAmount) = u:twodec($sumLineExtensionAmount - $sumAllowance +
+                    $sumCharge) [fatal] at
+                    /*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:TaxTotal[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][1]/*:TaxSubtotal[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][1]
+                    (NONAT-T14-R029); [NONAT-T14-R029]-Taxable amount in a tax subtotal MUST be the sum of line
+                    extension amount of all credit note lines and allowances and charges on document level with the same
+                    tax category.
+                </cbc:Description>
+                <cac:Status>
+                    <cbc:StatusReasonCode>RVF</cbc:StatusReasonCode>
+                </cac:Status>
+            </cac:Response>
+        </cac:LineResponse>
+    </cac:DocumentResponse>
+</ApplicationResponse>

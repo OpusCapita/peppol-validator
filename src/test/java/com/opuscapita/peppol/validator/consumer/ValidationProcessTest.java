@@ -33,15 +33,19 @@ public class ValidationProcessTest {
     private static final Logger logger = LoggerFactory.getLogger(ValidationProcessTest.class);
 
     @Autowired
-    MetadataExtractor metadataExtractor;
+    private MetadataExtractor metadataExtractor;
+
     @Autowired
-    ValidationRuleConfig ruleConfig;
+    private ValidationRuleConfig ruleConfig;
+
     @Autowired
-    DocumentSplitter documentSplitter;
+    private DocumentSplitter documentSplitter;
+
     @Autowired
-    HeaderValidator headerValidator;
+    private HeaderValidator headerValidator;
+
     @Autowired
-    PayloadValidator payloadValidator;
+    private PayloadValidator payloadValidator;
 
     @Test
     @Ignore

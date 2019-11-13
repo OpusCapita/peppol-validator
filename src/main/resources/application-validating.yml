@@ -1108,3 +1108,59 @@ peppol:
             - "xsl/BIIRULES-UBL-T01.xsl"
             - "xsl/OPENPEPPOL-UBL-T01.xsl"
             - "xsl/OPENPEPPOLCORE-UBL-T01.xsl"
+
+        #   ####### BEAst  #######   #
+        - id: 166
+          description: "BEAst Invoice v3.0.1"
+          archetype: "BEAst"
+          localName: "Invoic"
+          documentId: "urn:beastinvoice:3.0.1::Invoic##::3.0.1"
+          processId: "urn:beast:supplyprocess"
+          processSchema: "beast-procid"
+          version: "3.0.1"
+          rules:
+            - "xsd/BEAst-Invoice.xsd"
+
+        - id: 165
+          description: "BEAst DespatchAdvice v3.0.1"
+          archetype: "BEAst"
+          localName: "DespatchAdvice"
+          documentId: "urn:beastsupplymaterial:despatchadvice:3.0.1::DespatchAdvice##::3.0.1"
+          processId: "urn:beast:supplyprocess"
+          processSchema: "beast-procid"
+          version: "3.0.1"
+          rules:
+            - "xsd/BEAst-Supply-Material-Despatch-Advice.xsd"
+
+        - id: 164
+          description: "BEAst OrderChange v3.0.1"
+          archetype: "BEAst"
+          localName: "OrderChange"
+          documentId: "urn:beastsupplymaterial:orderchange:3.0.1::OrderChange##::3.0.1"
+          processId: "urn:beast:supplyprocess"
+          processSchema: "beast-procid"
+          version: "3.0.1"
+          rules:
+            - "xsd/BEAst-Supply-Material-Order-Change.xsd"
+
+        - id: 163
+          description: "BEAst OrderResponse v3.0.1"
+          archetype: "BEAst"
+          localName: "OrderResponse"
+          documentId: "urn:beastsupplymaterial:orderresponse:3.0.1::OrderResponse##::3.0.1"
+          processId: "urn:beast:supplyprocess"
+          processSchema: "beast-procid"
+          version: "3.0.1"
+          rules:
+            - "xsd/BEAst-Supply-Material-Order-Confirmation.xsd"
+
+        - id: 162
+          description: "BEAst Order v3.0.1"
+          archetype: "BEAst"
+          localName: "Order"
+          documentId: "urn:beastsupplymaterial:order:3.0.1::Order##::3.0.1"
+          processId: "urn:beast:supplyprocess"
+          processSchema: "beast-procid"
+          version: "3.0.1"
+          rules:
+            - "xsd/BEAst-Supply-Material-Order.xsd"
