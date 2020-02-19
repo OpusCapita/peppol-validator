@@ -209,7 +209,7 @@ peppol:
           archetype: "PEPPOL_BIS30"
           localName: "Order"
           documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1"
-          processId: "urn:fdc:peppol.eu:poacc:bis:order_only:3"
+          processId: "urn:fdc:peppol.eu:poacc:bis:ordering:3"
           processSchema: "cenbii-procid-ubl"
           version: "2.1"
           rules:
