@@ -26,7 +26,7 @@ public class ValidatorRestController {
         this.ruleConfig = ruleConfig;
     }
 
-    @GetMapping("/get-document-types")
+    @GetMapping("/public/get-document-types")
     public ResponseEntity<?> getDocumentTypes() {
         return wrap(ruleConfig.getMap());
     }
