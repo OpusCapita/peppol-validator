@@ -276,7 +276,7 @@ peppol:
             - "maindoc/UBL-DespatchAdvice-2.1.xsd"
             - "xsl/PEPPOLBIS-T16.xsl"
 
-        - id: 30009
+        - id: 176
           description: "Peppol BIS v3 Punch Out"
           archetype: "PEPPOL_BIS30"
           localName: "Catalogue"
@@ -288,7 +288,7 @@ peppol:
             - "maindoc/UBL-Catalogue-2.1.xsd"
             - "xsl/PEPPOLBIS-T77.xsl"
 
-        - id: 30009
+        - id: 174
           description: "Peppol BIS v3 Message Level Response"
           archetype: "PEPPOL_BIS30"
           localName: "ApplicationResponse"
