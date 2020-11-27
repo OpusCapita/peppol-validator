@@ -186,6 +186,8 @@ peppol:
             - "xsl/CEN-EN16931-UBL.xsl"
             - "xsl/PEPPOL-EN16931-CII.xsl"
             - "xsl/PEPPOL-EN16931-UBL.xsl"
+          suppress:
+            - "UBL-SR-47"
 
         - id: 160
           description: "Peppol BIS v3 CreditNote"
@@ -203,6 +205,7 @@ peppol:
             - "xsl/PEPPOL-EN16931-UBL.xsl"
           suppress:
             - "BR-CO-25"
+            - "UBL-SR-47"
 
         - id: 30003
           description: "Peppol BIS v3 Order"
