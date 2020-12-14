@@ -1167,3 +1167,58 @@ peppol:
           version: "3.0.1"
           rules:
             - "xsd/BEAst-Supply-Material-Order.xsd"
+
+        - id: 185
+          description: "XRechnung UBL Invoice V1.2"
+          archetype: "PEPPOL_BIS30"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_1.2::2.1"
+          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "1.2"
+          rules:
+            - "xsl/xrechnung1_2/XRechnung-UBL-validation-Invoice.xsl"
+
+        - id: 186
+          description: "XRechnung UBL CreditNote V1.2"
+          archetype: "PEPPOL_BIS30"
+          localName: "CreditNote"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_1.2::2.1"
+          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "1.2"
+          rules:
+            - "xsl/xrechnung1_2/XRechnung-UBL-validation-CreditNote.xsl"
+
+        - id: 187
+          description: "XRechnung CII Invoice V1.2"
+          archetype: "PEPPOL_BIS30"
+          localName: "Invoice"
+          documentId: "urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100::CrossIndustryInvoice##urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_1.2::D16B"
+          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "1.2"
+          rules:
+            - "xsl/xrechnung1_2/XRechnung-CII-validation.xsl"
+
+        - id: 210
+          description: "XRechnung UBL Invoice V2.0"
+          archetype: "PEPPOL_BIS30"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_2.0::2.1"
+          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "xsl/xrechnung2_0/XRechnung-UBL-validation-Invoice.xsl"
+
+        - id: 211
+          description: "XRechnung UBL CreditNote V2.0"
+          archetype: "PEPPOL_BIS30"
+          localName: "CreditNote"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_2.0::2.1"
+          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "xsl/xrechnung2_0/XRechnung-UBL-validation-CreditNote.xsl"
