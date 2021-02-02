@@ -182,9 +182,9 @@ peppol:
           version: "2.1"
           rules:
             - "maindoc/UBL-Invoice-2.1.xsd"
-            #- "xsl/CEN-EN16931-CII.xsl"
+            - "xsl/CEN-EN16931-CII.xsl"
             - "xsl/CEN-EN16931-UBL.xsl"
-            #- "xsl/PEPPOL-EN16931-CII.xsl"
+            - "xsl/PEPPOL-EN16931-CII.xsl"
             - "xsl/PEPPOL-EN16931-UBL.xsl"
           suppress:
             - "UBL-SR-47"
@@ -199,9 +199,9 @@ peppol:
           version: "2.1"
           rules:
             - "maindoc/UBL-CreditNote-2.1.xsd"
-            #- "xsl/CEN-EN16931-CII.xsl"
+            - "xsl/CEN-EN16931-CII.xsl"
             - "xsl/CEN-EN16931-UBL.xsl"
-            #- "xsl/PEPPOL-EN16931-CII.xsl"
+            - "xsl/PEPPOL-EN16931-CII.xsl"
             - "xsl/PEPPOL-EN16931-UBL.xsl"
           suppress:
             - "BR-CO-25"
