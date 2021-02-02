@@ -255,6 +255,18 @@ peppol:
             - "maindoc/UBL-Catalogue-2.1.xsd"
             - "xsl/PEPPOLBIS-T19.xsl"
 
+        - id: 31006
+          description: "Peppol BIS v3 Catalogue wo Response"
+          archetype: "PEPPOL_BIS30"
+          localName: "Catalogue"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2::Catalogue##urn:fdc:peppol.eu:poacc:trns:catalogue:3::2.1"
+          processId: "urn:fdc:peppol.eu:poacc:bis:catalogue_wo_response:3"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Catalogue-2.1.xsd"
+            - "xsl/PEPPOLBIS-T19.xsl"
+
         - id: 30007
           description: "Peppol BIS v3 Catalogue Response"
           archetype: "PEPPOL_BIS30"
