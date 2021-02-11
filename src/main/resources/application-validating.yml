@@ -1232,6 +1232,32 @@ peppol:
             - "xsl/CEN-EN16931-UBL.xsl"
             - "xsl/xrechnung2_0/XRechnung-UBL-validation-Invoice.xsl"
 
+        - id: 20210
+          description: "XRechnung UBL Invoice V2.0 OC GENERATED - testonly"
+          archetype: "XRECHNUNG20"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_2.0::2.1"
+          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0-ocg"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "maindoc/UBL-Invoice-2.1.xsd"
+            - "xsl/CEN-EN16931-UBL.xsl"
+            - "xsl/xrechnung2_0/xrechnung_xsl_2.0_invoice_ubl_generated.xsl"
+
+        - id: 20210
+          description: "XRechnung UBL Invoice V2.0 (kpetersdms) - testonly"
+          archetype: "XRECHNUNG20"
+          localName: "Invoice"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_2.0::2.1"
+          processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0-kped"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.0"
+          rules:
+            - "maindoc/UBL-Invoice-2.1.xsd"
+            - "xsl/CEN-EN16931-UBL.xsl"
+            - "xsl/xrechnung2_0/xrechnung_xsl_2.0_invoice_ubl_kpetersdms.xsl"
+
         - id: 211
           description: "XRechnung UBL CreditNote V2.0"
           archetype: "XRECHNUNG20"
