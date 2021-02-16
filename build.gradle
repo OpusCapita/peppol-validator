@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    compile 'net.sf.saxon:Saxon-HE:9.9.1-8'
+    compile 'net.sf.saxon:Saxon-HE:10.3'
     compile 'com.google.guava:guava:24.0-jre'
     compile 'org.codehaus.woodstox:woodstox-core-asl:4.4.1'
     compile 'com.opuscapita.peppol:peppol-commons:1.1.1'
