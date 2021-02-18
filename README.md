@@ -12,5 +12,5 @@ Please check the wiki pages for more information:
 * [Validator Service](https://opuscapita.atlassian.net/wiki/spaces/IIPEP/pages/107806873/New+Peppol+solution+modules+description#NewPeppolsolutionmodulesdescription-validator)
 * [Validation Artifacts Upgrade](https://opuscapita.atlassian.net/wiki/spaces/IIPEP/pages/107806896/Upgrade+of+validation+artifacts)
 * [Validator as a Service](https://opuscapita.atlassian.net/wiki/spaces/IIPEP/pages/107806913/Validator+as+a+Service)
-.
+..
   
