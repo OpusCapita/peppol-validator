@@ -1209,7 +1209,7 @@ peppol:
         - id: 187
           description: "XRechnung CII Invoice V1.2 (Disabled)"
           archetype: "XRECHNUNG12"
-          localName: "Invoice"
+          localName: "CrossIndustryInvoice"
           documentId: "urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100::CrossIndustryInvoice##urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_1.2::D16B"
           processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
           processSchema: "cenbii-procid-ubl"
@@ -1273,8 +1273,8 @@ peppol:
 
         - id: 209
           description: "XRechnung CII Invoice V2.0 Extension (Disabled)"
-          archetype: "XRECHNUNG12"
-          localName: "Invoice"
+          archetype: "XRECHNUNG20"
+          localName: "CrossIndustryInvoice"
           documentId: "urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100::CrossIndustryInvoice##urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_2.0#conformant#urn:xoev-de:kosit:extension:xrechnung_2.0::16B"
           processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
           processSchema: "cenbii-procid-ubl"
