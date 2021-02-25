@@ -1216,7 +1216,7 @@ peppol:
           version: "1.2"
           rules:
             - "xsd/CII/D16B_SCRDM_Subset_CII_uncoupled_clm/uncefact/data/standard/CrossIndustryInvoice_100pD16B.xsd"
-            - "xsl/CEN-EN16931-CII.xsl"
+            - "xsl/xrechnung1_2/cii/EN16931-CII-validation.xslt"
             - "xsl/xrechnung1_2/XRechnung-CII-validation.xsl"
 
         - id: 210
