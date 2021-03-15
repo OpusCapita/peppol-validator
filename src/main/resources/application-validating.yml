@@ -219,6 +219,18 @@ peppol:
             - "maindoc/UBL-Order-2.1.xsd"
             - "xsl/PEPPOLBIS-T01.xsl"
 
+        - id: 30013
+          description: "Peppol BIS v3 Order (Only)"
+          archetype: "PEPPOL_BIS30"
+          localName: "Order"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1"
+          processId: "urn:fdc:peppol.eu:poacc:bis:order_only:3"
+          processSchema: "cenbii-procid-ubl"
+          version: "2.1"
+          rules:
+            - "maindoc/UBL-Order-2.1.xsd"
+            - "xsl/PEPPOLBIS-T01.xsl"
+
         - id: 30004
           description: "Peppol BIS v3 Order Response"
           archetype: "PEPPOL_BIS30"
