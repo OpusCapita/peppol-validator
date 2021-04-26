@@ -229,7 +229,7 @@ peppol:
           version: "2.1"
           rules:
             - "maindoc/UBL-Order-2.1.xsd"
-            - "xsl/PEPPOLBIS-T01.xsl" 
+            - "xsl/PEPPOLBIS-T01.xsl"
 
         - id: 30004
           description: "Peppol BIS v3 Order Response"
