@@ -14,7 +14,7 @@ Please check the wiki pages for more information:
 * [Validator as a Service](https://opuscapita.atlassian.net/wiki/spaces/IIPEP/pages/107806913/Validator+as+a+Service)
 .
 
-
+--------
 
 UPDATING DOCUMENT SUPPORT
 If we need to update/add/delete a document type as Access Point, we have to update the configuration in validator service. It will give access point to ability to validate the documents with the new document type. Then we can safely register our customer in SMP with the capability to receive the new document type. 
