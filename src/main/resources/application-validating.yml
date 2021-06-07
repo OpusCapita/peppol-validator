@@ -1245,10 +1245,10 @@ peppol:
             - "xsl/xrechnung2_0/XRechnung-UBL-validation-Invoice.xsl"
 
         - id: 211
-          description: "XRechnung UBL CreditNote V2.0 (Disabled)"
+          description: "XRechnung UBL CreditNote V2.0"
           archetype: "XRECHNUNG20"
           localName: "CreditNote"
-          documentId: "disable___urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_2.0::2.1"
+          documentId: "urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_2.0::2.1"
           processId: "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
           processSchema: "cenbii-procid-ubl"
           version: "2.0"
